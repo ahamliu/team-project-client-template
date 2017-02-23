@@ -1,0 +1,60 @@
+/*------NAVBAR CONTAINER--------*/
+#navbar.container{
+  width: inherit;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+/*------NAVBAR CONTAINER--------*/
+/*------SEARCH BAR--------*/
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+    margin-top: 10px
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+/*------SEARCH BAR------*/
+/*------TITLE------*/
+#title{
+  padding-left: 150px;
+  margin-right: 1px;
+}
+/*------TITLE------*/
+/*------PROFILE IMAGE------*/
+#profile_image.pull-right{
+  height: 64px;
+  width:64px;
+  margin-right:64px;
+  margin-top:8px;
+}
+#login.pull-right{
+  margin-top: 30px;
+  margin-right: 5px;
+}
+/*------PROFILE IMAGE------*/
