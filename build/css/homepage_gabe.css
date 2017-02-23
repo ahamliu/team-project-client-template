@@ -58,3 +58,22 @@
   margin-right: 5px;
 }
 /*------PROFILE IMAGE------*/
+/*------MIDDLE COLUMN------*/
+#main-nav-bar ul{
+  margin-left:225px;
+  background-clip:content-box;
+  box-sizing: content-box;
+  background-color: lightblue;
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+.horizontal{
+  display: inline;
+}
+#news{
+  border: 1px solid #000;
+  margin-top: 60px;
+}
+
+/*------MIDDLE COLUMN------*/
