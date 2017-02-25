@@ -1,0 +1,54 @@
+body {
+
+}
+
+.layoutPadding {
+
+}
+.font{
+  font-size: 28pt
+}
+.rating{
+  font-size: 18pt
+}
+.border{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.wish_list-time{
+  font-size: 10pt
+}
+
+.panel_padding{
+  padding-top: 10px
+}
+.wishHistoryBorder{
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 10px;
+}
+.ratePadding{
+  margin-top:10px;
+  margin-bottom:5px
+}
+.textarea{
+  resize:none
+}
+.reviews hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* The color of `hr` is set by its top border color.
+     Yeah, it's weird. */
+  border-top: 1px solid lightgray;
+}
+.reviews .list-inline {
+  margin-bottom: 0px;
+}
+
+.reviews .panel-body {
+  padding-bottom: 5px;
+}
