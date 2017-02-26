@@ -1,6 +1,11 @@
 body {
-   padding-top: 120px;
+   padding-top: 55px;
  }
+
+h1 {
+  padding-left: 15px;
+}
+
 
 .criteria-formatting {
   margin-left: 300px;
