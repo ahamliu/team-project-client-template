@@ -1,3 +1,19 @@
 body {
-   padding-top: 70px;
+   padding-top: 55px;
  }
+
+h1 {
+  padding-left: 15px;
+}
+
+
+.criteria-formatting {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+.results-formatting {
+  resize: none;
+  box-shadow: none !important;
+  border: none;
+}
