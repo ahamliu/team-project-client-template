@@ -66,44 +66,121 @@
         </div>
       </div>
     </nav>
-    <!-- CONTAINS LEFT, MAIN, AND RIGHT PANELS -->
-    <div class = "container">
-      <div class = "row">
-        <!-- Left Column -->
-        <div class = "col-md-2">
+    <!-- HEADING -->
 
+    <!-- CONTAINS LEFT, MAIN, AND RIGHT COLUMNS -->
+    <div class = "container-fluid">
+      <div class = "row">
+        <!-- LEFT COLUMN -->
+        <div class = "col-md-3">
+          <form>
+            <div class="form-group">
+              <!-- LOCATION -->
+              <label for="location">Location</label>
+              <input type="email" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Enter location">
+              <small id="locationHelp" class="form-text text-muted">City, State or Zip.</small>
+            </div>
+            <!-- TYPE -->
+            <div class="form-group">
+              <label for="type">Type</label>
+              <select class="form-control" id="type">
+                <option>Any</option>
+                <option>Dog</option>
+                <option>Cat</option>
+                <option>Bird</option>
+                <option>Small and fluffy</option>
+                <option>Horse</option>
+                <option>Reptile</option>
+                <option>Aquatic</option>
+                <option>Pig</option>
+                <option>Barnyard</option>
+                <option>Exotic</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <!-- SUB-TYPE -->
+            <div class="form-group disabled">
+              <label for="sub-type">Sub-type (breed)</label>
+              <select class="form-control" id="sub-type" disabled>
+                <option>Please select sub-type</option>
+              </select>
+            </div>
+
+            <!-- ROW CONTAINING AGE & GENDER -->
+            <row>
+              <!-- AGE -->
+              <div class = "col-md-6">
+                <div class = "form-group">
+                  <label for="age">Age</label>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="ageCheckboxI" value="optionInfant"> infant
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="ageCheckboxY" value="optionYoung"> Young
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="ageCheckboxA" value="optionAdult" => Adult
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="ageCheckboxS" value="optionSenior" => Senior
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <!-- GENDER -->
+              <div class = "col-md-6">
+                <div class = "form-group">
+                  <label for="age">Gender</label>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="genderCheckboxM" value="optionMale"> Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="genderCheckboxF" value="optionFemale"> Female
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="genderCheckboxU" value="optionUknown" => Unknown
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </row>
+
+            <div class="form-group pull-left">
+              <label for="characteristics">Characteristics</label>
+              <input type="email" class="form-control" id="location" aria-describedby="characteristicsHelp" placeholder="Enter characteristics">
+              <small id="characteristicsHelp" class="form-text text-muted">i.e. friendly, smelly, etc.</small>
+            </div>
+
+          </form>
         </div>
         <!-- Center Column -->
-        <div class "col-md-8">
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Location</span>
-            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Keywords</span>
-            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Type</span>
-            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Subtype</span>
-            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Age</span>
-            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
-          </div>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon" id="sizing-addon1">Gender</span>
-            <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+        <div class "col-md-9">
+          <div class = "panel panel-default results-formatting">
+             <div class = "panel-body">
+               <div class="panel panel-default results-formatting">
+                 <div class="panel-body">
+                   RESULTS
+                 </div>
+               </div>
+             </div>
           </div>
         </div>
         <!-- Right Column -->
-        <div class "col-md-2">
+        <!--<div class "col-md-2">
 
-        </div>
+        </div> -->
       </div>
     </div>
 
