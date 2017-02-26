@@ -1,0 +1,41 @@
+body {
+   padding-top: 80px;
+ }
+.card-footer{
+  border-top: 1px solid lightgrey;
+
+}
+.card-img-top{
+  padding-bottom: 5px;
+}
+.myImage {
+  float: left;
+  height: 400px;
+  width: 320px;
+  padding-right: 20px;
+}
+.cdtxt{
+  padding-top: 10px;
+}
+.panel-list{
+  padding-bottom: 10px;
+}
+.list-description textarea {
+ resize: none;
+}
+.label{
+  padding-top: 10px;
+}
+
+.card-f{
+  border-bottom: 1px solid lightgrey;
+}
+.card-footer{
+  padding-bottom: 50px;
+}
+.media-body{
+  padding-bottom: 10px;
+}
+.btns{
+  margin-top: 100px;
+}
