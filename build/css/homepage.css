@@ -161,6 +161,12 @@
   width: 70%;
 }
 
+.potm-label {
+  background-color: #009587;
+  display: block;
+  /*margin-bottom: 0px;
+  padding-bottom: 0px;*/
+}
 
 .potm::before {
   content:"";
