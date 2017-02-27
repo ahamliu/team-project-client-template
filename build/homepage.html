@@ -1,1 +1,195 @@
-hello world!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head;
+  any other head content must come *after* these tags -->
+    <title>LitterBox</title>
+
+    <!-- Bootstrap's CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/homepage.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- All of your HTML will go between here.... -->
+    <nav class="navbar navbar-default">
+
+        <div id="navbar" class="container">
+            <div class="row" style="background-color:#009587">
+                <!--*******SEARCH BAR*******-->
+                <div class="col-md-4 pull-left">
+
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="" />
+                            <span class="input-group-btn">
+                <button class="btn btn-info btn-lg" type="button">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </span>
+                        </div>
+                    </div>
+                </div>
+                <!--*******SEARCH BAR*******-->
+                <!--*******TITLE*******-->
+                <div id="title" class="navbar-header">
+                  <a class="navbar-brand" href="#">
+                  <font color="ffffff">
+                    <span class="glyphicon glyphicon-heart-empty logo-text"></span>LitterBox</font>
+                  </a>
+                </div>
+          <!--*******TITLE*******-->
+          <!--*******PROFILE IMAGE*******-->
+          <div id="profile_image" class="pull-right">
+            <img src="img/blank_profile.png" width="100%"/>
+          </div>
+          <div id="login" class="pull-right">
+            <a href="#">Login</a>
+          </div>
+          <!--*******PROFILE IMAGE*******-->
+        </div>
+      </div>
+
+    </nav>
+
+<!-- main body -->
+    <div class=row>
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="row column-top-spacer">
+          <!-- spacer -->
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            Your Listed Animals
+          </li>
+          <li class="list-group-item">
+            Your Favorites
+          </li>
+        </ul>
+      </div>
+
+
+      <!--********MIDDLE COLUMN******** -->
+      <div id="main-nav-bar" class="col-md-6">
+        <ul  class="nav navbar-nav">
+          <li class="horizontal"><a href="#">Find/Browse</a></li>
+          <li class="horizontal"><a href="#">List</a></li>
+          <li class="horizontal"><a href="#">Shelters</a></li>
+        </ul>
+
+<br></br>
+        <h1 class="text-center" style="color:#009587">NEWS</h1>
+
+        <div id="news" style="overflow-y: hidden; height:400px;">
+
+          <ul class="media-list">
+
+            <li class="media">
+              <div class="media-left media-top">
+                <span class="glyphicon glyphicon-hand-right"></span>
+              </div>
+              <div class="media-body">
+                <a href="#">Panda costumes used to fool four-month-old cub</a>:
+                The four-month-old cub is the first to be trained for reintroduction into the wild by the Hetaoping Research and Conservation Center for the Giant Panda in Wolong National Nature Reserve in Sichuan province, China.
+              </div>
+            </li>
+
+            <li class="media">
+              <div class="media-left media-top">
+                <span class="glyphicon glyphicon-hand-right"></span>
+              </div>
+              <div class="media-body">
+                <a href="#">Meet the two-legged pig</a>: The 10-month old piggy is somewhat of a celebrity and the local villagers have fondly named her ‘Zhu Jianqiang.’
+              </div>
+            </li>
+
+            <div style="height:1000px;">
+            </div>
+            this is overflow.
+          </ul>
+
+
+        </div>
+     </div>
+
+            <!--********MIDDLE COLUMN******** -->
+
+            <!-- right column -->
+            <div class="col-md-3">
+                <div class="container">
+                    <div class="row column-top-spacer">
+                        <!-- spacer -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+
+                        </div>
+                        <!-- <span class="label label-default" style="width=100%;"> please check out our sponsors! </span> -->
+                    </div>
+                </div>
+
+                <!-- ad row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="label label-default"> please check out our sponsors! </span>
+                        <div class="ad">
+                            <img class="ad" src="img/08_19_09_diagram.jpg" />
+                        </div>
+                        <div class="ad-bottom-buffer">
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- potm row -->
+                <div class="row potm">
+                    <div class="col-md-12">
+                        <!-- <span class="potm-title">Pet of The Month</span> -->
+                        <h4 class="text-center">Pet of the Month</h4>
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object potm-image" src="img/potm.jpeg" />
+                            </div>
+                            <div class="media-body">
+                                <h5 class="potm-title">name</h5>
+                                <p class="potm-text">
+                                    Dr Snakeman
+                                </p>
+                                <h5 class="potm-title">gender</h5>
+                                <p class="potm-text">
+                                    ???
+                                </p>
+                                <h5 class="potm-title">species</h5>
+                                <p class="potm-text">
+                                    snake
+                                </p>
+                            </div>
+                        </div>
+                        <p class="potm-descript">
+                          "found in my kitchen pls come pick up.  txt or call anytime"
+                        </p>
+                        <a class="btn btn-primary btn-block potm-button" href="#" role="button">Interested?</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+
+        <!-- ...and here. -->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below),
+    or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

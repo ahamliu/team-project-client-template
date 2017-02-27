@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardie</title>
+
+  <!-- Bootstrap's CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href = "css/profile.css" rel = "stylesheet">
+</head>
+
+<body>
+  <nav class="navbar-inverse navbar-default navbar-fixed-top navbar">
+    <div class="container-fluid">
+      <!-- HEADER -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <font color="5fcf80"><span class="glyphicon glyphicon-heart-empty"></span></font><font color="ffffff">LitterBox</a></font>
+        </a>
+      </div>
+      <!-- SEARCH BAR -->
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <!-- RIGHT ALLIGNED ITEMS -->
+      <div class="btn-toolbar pull-right" role="toolbar">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default navbar-btn fb-notifications ">
+            <span class="glyphicon glyphicon-user"></span>Profile
+          </button>
+          <button type="button" class="btn btn-default navbar-btn fb-notifications ">
+            <span class="glyphicon glyphicon-comment"></span>Messages
+            <span class="badge">1</span>
+          </button>
+          <button type="button" class="btn btn-default navbar-btn fb-notifications ">
+            <span class="glyphicon glyphicon-globe"></span>News
+            <span class="badge">3</span>
+          </button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default navbar-btn">
+            <span class="glyphicon glyphicon-lock"></span>
+          </button>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle navbar-btn"
+            data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Log out...</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <!--profile page layout-->
+  <div class="container layoutPadding">
+    <div class="row">
+    <!-- Left sidebar: A cell that spans 3 columns -->
+      <div class="col-md-3">
+        <div class="row">
+          <div class="col-md-12 font">
+            <img src="img/userpic.jpg" width="100%" />Cardie
+          </div>
+          <div class="col-md-12">
+           <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> mobile: (000)000-0000<br>
+           <span class="glyphicon glyphicon-phone" aria-hidden="true"></span> email: cardie@umass.edu<br>
+           <a href="#"><span class="glyphicon glyphicon-pencil pull-right">edit</span></a>
+
+          </div>
+        </div>
+        <div class="row border">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-user" aria-hidden="true">Bio</span><br>
+            A Umass undergrad student.<br>
+            <a href="#"><span class="glyphicon glyphicon-pencil pull-right">edit</span></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span> Joined 5 years ago
+          </div>
+        </div>
+
+      </div>
+    <!-- Main feed: A cell that spans 6 columns -->
+      <div class="col-md-6 reviews">
+        <span class="glyphicon glyphicon-stats rating" aria-hidden="true">Ratings</span>
+        <div class="progress ratePadding">
+          <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+            50% Positive reviews
+          </div>
+        </div>
+        <!--filter-->
+        <div class="radio">
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            positive reviews only
+          </label>
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            neutral reviews only
+          </label>
+          <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            negative only
+          </label>
+        </div>
+        <!--panels-->
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <!-- Post metadata -->
+            <div class="row">
+              <div class="col-md-10">
+                <div class="media">
+                  <div class="media-left media-top">
+                    PIC
+                  </div>
+                  <div class="media-body">
+                    <a href="#">Duncan</a>
+                    <br> Yesterday at 2:29pm · Amherst, MA
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <span class="caret pull-right"></span>
+              </div>
+            </div>
+              <!-- Post content -->
+            <div class="row">
+              <div class="col-md-12">I am a big fan of Cardie!</div>
+            </div>
+              <!--button groups-->
+              <div class="row">
+                <div class="col-md-12"><hr>
+                  <ul class="list-inline thumb_Padding">
+                    <li>
+                      <span class="glyphicon glyphicon-thumbs-up">29</span></a>
+                    </li>
+                    <li>
+                      <span class="glyphicon glyphicon-thumbs-down">2</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          <div class="panel-footer">
+            <ul class="media-list">
+              <li class="media">
+                <div class="media-left media-top">
+                  PIC
+                </div>
+                <div class="media-body">
+                  <div class="input-group">
+                    <input type="text" class="form-control"
+                    placeholder="Reply">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!--rating#2-->
+        <div class="panel panel-default">
+          <div class="panel-body">
+              <!-- Post metadata -->
+            <div class="row">
+              <div class="col-md-10">
+                <div class="media">
+                  <div class="media-left media-top">PIC</div>
+                  <div class="media-body">
+                    <a href="#">Anonymous</a>
+                    <br> September 1, 2012 · Austin, TX
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <span class="caret pull-right"></span>
+              </div>
+            </div>
+              <!-- Post content -->
+            <div class="row">
+              <div class="col-md-12">Don't trust Cardie, he is atrocious.</div>
+            </div>
+              <!--Agree Disagree-->
+              <div class="row">
+                <div class="col-md-12"><hr>
+                  <ul class="list-inline">
+                    <li>
+                      <span class="glyphicon glyphicon-thumbs-up"></span></a>
+                    </li>
+                    <li>
+                      <span class="glyphicon glyphicon-thumbs-down">1</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          <div class="panel-footer">
+            <ul class="media-list">
+              <li class="media">
+                <div class="media-left media-top">
+                  PIC
+                </div>
+                <div class="media-body">
+                  <div class="input-group">
+                    <input type="text" class="form-control"
+                    placeholder="Reply">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+    <!-- Right sidebar: A cell that spans 3 columns -->
+      <div class="col-md-3">
+        <div class = "row wishHistoryBorder">
+          <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Wish List
+          <a href="#"><span class="glyphicon glyphicon-pencil pull-right">edit</span></a>
+
+          <!-- Wish list #1 -->
+            <div class = "col-md-12">
+            <div class = "row panel_padding">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <!-- Post time -->
+                <div class="row">
+                  <div class="col-md-10 wish_list-time">
+                        Yesterday at 3:48pm - Amherst, MA
+                  </div>
+                </div>
+                <!-- Post content -->
+                <div class="row">
+                  <div class="col-md-12">Want to adopt a poodle, hopefully near Amherst.</div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        <div class = "row">
+          <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>Post History
+          
+
+          <!--History#1-->
+          <div class="col-md-12">
+            <div class = "row panel_padding">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="media">
+                    <div class="media-left">
+                      <span class="glyphicon glyphicon-ok"></span>
+                    </div>
+                    <div class="media-body">
+                      <div class="row">
+                        <div class="col-md-12 wish_list-time">
+                          February 29, 2016 - Amherst, MA
+                        </div>
+                      </div>
+                  Succeeded: Adopted <a href="#">Doge</a> from <a href="#">Duncan</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--History#2-->
+          <div class = "row">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="media">
+                <div class="media-left">
+                  <span class="glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="media-body">
+                  <div class="row">
+                    <div class="col-md-12 wish_list-time">
+                          November 25, 2012 - Jinan
+                    </div>
+                  </div>
+                  Canceled: Gived away <a href="#">Kokoro</a> to <a href="#">Guangyu Xu</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="js/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below),
+           or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

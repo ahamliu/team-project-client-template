@@ -1,3 +1,7 @@
+.navbar-inverse{
+  background-color: #009587;
+}
+
 body {
    padding-top: 55px;
  }
@@ -16,4 +20,13 @@ h1 {
   resize: none;
   box-shadow: none !important;
   border: none;
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+}
+
+.results-media-formatting{
+  padding-left: 0px;
+  padding-right: 0px;
 }
