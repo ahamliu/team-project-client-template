@@ -15,6 +15,11 @@
     width: inherit;
     margin-right: 1px;
     margin-left: 1px;
+    background-color:"#009587";
+}
+
+#navbar.container a{
+  color: white;
 }
 
 
@@ -65,6 +70,10 @@
 #title {
     padding-left: 150px;
     margin-right: 1px;
+    padding-top:1px;
+}
+#title font{
+  font-size: 50px;
 }
 
 
@@ -83,6 +92,7 @@
 #login.pull-right {
     margin-top: 30px;
     margin-right: 5px;
+    color:white;
 }
 
 
@@ -91,13 +101,19 @@
 
 /*------MIDDLE COLUMN------*/
 
+
 #main-nav-bar >ul {
     margin-left: 225px;
     background-clip: content-box;
     box-sizing: content-box;
-    background-color: lightblue;
+    background-color: #009587;
     border: 1px solid #000;
     border-radius: 20px;
+}
+
+#main-nav-bar a{
+  color: white;
+  background-color: transparent;
 }
 
 #main-nav-bar a:hover{
@@ -114,6 +130,9 @@
 #news {
     border: 1px solid #000;
     margin-top: 60px;
+}
+#news a{
+  color:blue;
 }
 
 
