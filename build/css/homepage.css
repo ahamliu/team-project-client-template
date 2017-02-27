@@ -89,9 +89,19 @@
 
 
 /*left column*/
+
+.left-column-list {
+  padding-bottom: 10px;
+}
+
+.left-column-list-item {
+  margin-bottom: : 0px;
+  margin-top: 0px;
+}
+
 .listing-img {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 /*------MIDDLE COLUMN------*/
