@@ -2,6 +2,19 @@ body {
    background-color: #fafafa;
  }
 
+.navbar-header {
+  position: absolute;
+  left: 45%;
+}
+
+
+.fb-notifications {
+  background-color: #009587;
+  border: 0px;
+  font-size: 120%;
+  color: #ffffff;
+}
+
 .logo-text{
   color: #5fcf80;
 }
