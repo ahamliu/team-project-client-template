@@ -8,6 +8,7 @@
   height: 60px;
 }
 
+
 /*------NAVBAR CONTAINER--------*/
 
 #navbar.container {
@@ -99,8 +100,15 @@
     border-radius: 20px;
 }
 
+#main-nav-bar a:hover{
+  color: darkblue;
+  background-color: transparent;
+}
+
+
 .horizontal {
     display: inline;
+
 }
 
 #news {
