@@ -1,9 +1,13 @@
 body {
-
+  padding-top:80px;
+  background-color: #fafafa;
 }
-
-.layoutPadding {
-
+.navbar{
+background-color: #009587;
+}
+.navbar .navbar-brand,
+.navbar .navbar-brand:hover {
+  color: #5fcf80;
 }
 .font{
   font-size: 28pt
