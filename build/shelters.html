@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>List Pet</title>
+  <title>Shelters</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -64,6 +64,34 @@
   </div>
 </div>
 </nav>
+
+<div id="main">
+
+
+  <img id="map" src="img/shelters.png">
+
+  <form>
+
+  <div id=location class="form-group">
+    <label for="location">Location</label>
+    <input type="location" class="form-control" id="location-input" placeholder="City,State,Zip Code">
+  </div>
+
+  <div id=radius class="form-group">
+    <label for="radius">Radius (miles)</label>
+    <select class="form-control" id="radius-input">
+      <option>5</option>
+      <option>10</option>
+      <option>25</option>
+      <option>50</option>
+      <option>100</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
