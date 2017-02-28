@@ -118,13 +118,13 @@ body{
     display: block;
 }
 
-#animals-title {
+.animals-title {
   color: #009587;
   display: block;
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 0px;
-  /*border-bottom: 1px solid #009587;*/
+  border-top: 1px solid #009587;
 }
 
 
@@ -161,6 +161,10 @@ body{
 .listing-img {
     width: 35px;
     height: 35px;
+}
+
+.in-area-text {
+  font-size: 11px;
 }
 
 
