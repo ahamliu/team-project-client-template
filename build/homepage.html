@@ -56,14 +56,28 @@
 <!-- main body -->
     <div class=row>
       <!-- left column -->
-      <div class="col-md-2">
-        <div class="row column-top-spacer">
-          <!-- spacer -->
+      <div class="col-md-2" id="left-sidebar">
+
+        <!-- buttons -->
+        <div class="row">
+          <div class="col-md-12" id="left-sidebar-buttons">
+            <div class="btn-group-vertical sidebar-button">
+              <button type="button" class="btn btn-primary sidebar-button">Find/Browse</button>
+              <button type="button" class="btn btn-primary sidebar-button">List</button>
+              <button type="button" class="btn btn-primary sidebar-button">Shelters</button>
+            </div>
+          </div>
         </div>
-        <ul class="list-unstyled left-column">
+        <div class="row" id="animals-title">
+          <h5>Your Animals</h5>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12" style="display: block;">
+            <ul class="list-unstyled">
                   <!-- listed animals list -->
-          <li>
-            <h5 style="color: white;"><span class="label label-default">Listed</span></h5>
+                  <li>
+            <h5 style="color: white;"><span class="label label-default left-column-list-label">Listed</span></h5>
               <!-- <span class="glyphicon glyphicon-stop"><b>  Listed</b></span> -->
             <ul class="medial-list left-column-list">
               <li class="media left-column-list-item">
@@ -71,7 +85,7 @@
                   <img class="media-object listing-img" src="img/listed1.jpg" />
                 </div>
                 <div class="media-body media-middle">
-                  Tube Cat
+                  "Cat&tube"
                 </div>
               </li>
               <li class="media left-column-list-item">
@@ -79,21 +93,21 @@
                   <img class="media-object listing-img" src="img/listed2.jpg" />
                 </div>
                 <div class="media-body media-middle">
-                  Anger Dog
+                  "nice dog"
                 </div>
               </li>
             </ul>
           </li>
           <!-- favorited animals list -->
           <li>
-            <span class="glyphicon glyphicon-stop"><b>Favorited</b></span>
+            <h5 style="color: white;"><span class="label label-default left-column-list-label">Favorited</span></h5>
             <ul class="medial-list left-column-list">
               <li class="media left-column-list-item">
                 <div class="media-left media-middle">
                   <img class="media-object listing-img" src="img/fav1.jpg" />
                 </div>
                 <div class="media-body media-middle">
-                  Smug Goat
+                  "Smuggers"
                 </div>
               </li>
               <li class="media left-column-list-item">
@@ -101,13 +115,19 @@
                   <img class="media-object listing-img" src="img/fav2.jpg" />
                 </div>
                 <div class="media-body media-middle">
-                  Alarm Goat
+                  "goat4u"
                 </div>
               </li>
             </ul>
           </li>
+          <li style="height: 100px">
+
+          </li>
 
         </ul>
+
+      </div>
+    </div>
       </div>
 
 
