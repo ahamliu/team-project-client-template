@@ -1,0 +1,20 @@
+.navbar-inverse{
+  background-color: #009587;
+}
+#main{
+  margin-left: 350px;
+  margin-top: 75px;
+}
+#map{
+  box-sizing:content-box;
+  border: 30px solid #009587;
+  border-radius: 20px;
+}
+
+#location{
+  width:25%;
+}
+
+#radius{
+  width:8%
+}

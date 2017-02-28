@@ -1,3 +1,17 @@
+.navbar-inverse{
+  position: absolute;
+  background-color: #009587;
+}
+
+.navbar-buttons{
+  background-color: #009587;
+}
+
+.navbar-header{
+  position: absolute;
+  left: 45%
+}
+
 body {
    padding-top: 55px;
  }
@@ -16,4 +30,22 @@ h1 {
   resize: none;
   box-shadow: none !important;
   border: none;
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+}
+
+.results-media-formatting{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.borderlist {
+    list-style-position:inside;
+    border: 1px solid black;
+}
+
+.dropdown-format {
+  display: inline-block;
 }
