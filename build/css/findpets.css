@@ -1,3 +1,8 @@
+body {
+   padding-top: 55px;
+   background-color: #fafafa;
+ }
+
 .navbar-inverse{
   position: absolute;
   background-color: #009587;
@@ -12,14 +17,15 @@
   left: 45%
 }
 
-body {
-   padding-top: 55px;
+.nav-pills > li > a {
+   color: #009587;
+   font-family: 'Oswald', sans-serif;
+   font-size: 1.5em;
  }
-
-h1 {
-  padding-left: 15px;
-}
-
+ .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+     color:black;
+     background-color: transparent;
+ }
 
 .criteria-formatting {
   margin-left: 300px;
@@ -30,6 +36,7 @@ h1 {
   resize: none;
   box-shadow: none !important;
   border: none;
+  background-color: #fafafa;
 }
 
 .btn-primary-outline {
