@@ -54,6 +54,10 @@ body{
   padding-bottom: 0px;
 }
 
+#leftcolumn{
+  border-radius: 20px;
+  border: 1px solid #009587;
+}
 
 
 #left-sidebar {
