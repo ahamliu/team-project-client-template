@@ -141,6 +141,7 @@ body{
 .potm {
   border-radius: 20px;
   border: 1px solid #009587;
+  margin-bottom: 20px;
 }
 
 .potm-title {
@@ -162,16 +163,22 @@ body{
   font-size: x-small;
 }
 
-.potm-descript{
-  background-color: white;
-}
-
 .potm-button {
   margin-bottom: 5px;
   background-color: #009587;
 }
 
+.statistics-styling {
+  background-color: transparent;
+  padding-top: 20px;
+  border: none;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  box-shadow: none !important;
+}
 
-
-
+/* ul > li:nth-of-type(odd) {
+    background-color: white;
+} */
 /*------RIGHT COLUMN------*/
