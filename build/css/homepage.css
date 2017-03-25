@@ -9,103 +9,31 @@
 }
 
 body{
-  background-color: #e6fffc;
+  padding-top: 55px;
+  background-color: #fafafa;
 }
 
+.home-header {
+  padding-left: 15px;
+}
 
 /*------NAVBAR CONTAINER--------*/
 
-#navbar.container {
-    width: inherit;
-    margin-right: 1px;
-    margin-left: 1px;
-    background-color:"#009587";
+.navbar-inverse{
+  position: absolute;
+  background-color: #009587;
 }
 
-#navbar.container a{
-  color: white;
+.navbar-buttons{
+  background-color: #009587;
 }
 
-
-/*------NAVBAR CONTAINER--------*/
-
-
-/*------SEARCH BAR--------*/
-
-#custom-search-input {
-    padding: 3px;
-    border: solid 1px #E4E4E4;
-    border-radius: 6px;
-    background-color: #fff;
-    margin-top: 10px
+.navbar-header{
+  position: absolute;
+  left: 45%
 }
-
-#custom-search-input input {
-    border: 0;
-    box-shadow: none;
-}
-
-#custom-search-input button {
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: #666666;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input button:hover {
-    border: 0;
-    box-shadow: none;
-    border-left: solid 1px #ccc;
-}
-
-#custom-search-input .glyphicon-search {
-    font-size: 23px;
-}
-
-
-/*------SEARCH BAR------*/
-
-
-/*------TITLE------*/
-
-#title {
-    padding-left: 110px;
-    margin-right: 1px;
-    padding-top:1px;
-}
-#title font{
-  font-size: 50px;
-}
-
-
-/*------TITLE------*/
-
-
-/*------PROFILE IMAGE------*/
-
-#profile_image.pull-right {
-    height: 64px;
-    width: 64px;
-    margin-right: 64px;
-    margin-top: 8px;
-}
-
-#login.pull-right {
-    margin-top: 30px;
-    margin-right: 5px;
-    color:white;
-}
-
-
-/*------PROFILE IMAGE------*/
 
 /*------LEFT COLUMN------*/
-.column-top-spacer {
-    height: 60px;
-}
 
 .sidebar-button {
   background-color: #009587;
@@ -124,15 +52,18 @@ body{
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 0px;
-  border-top: 1px solid #009587;
+}
+
+#leftcolumn{
+  border-radius: 20px;
+  border: 1px solid #009587;
 }
 
 
-
 #left-sidebar {
-    padding-left: 20px;
-    border-right: 1px solid #009587;
-    /*outline: #009587;*/
+    border-radius: 20px;
+    border: 1px solid #009587;
+
 }
 
 #left-sidebar-buttons {
@@ -170,30 +101,16 @@ body{
 
 /*------MIDDLE COLUMN------*/
 
-#main-nav-bar h1{
-  padding-top: 40px;
+
+.nav-pills > li > a {
+  color: #009587;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
 }
-
-
-#main-nav-bar >ul {
-    margin-left: 225px;
-    background-clip: content-box;
-    box-sizing: content-box;
-    background-color: #009587;
-    border: 1px solid #000;
-    border-radius: 20px;
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color:black;
+    background-color: transparent;
 }
-
-#main-nav-bar a{
-  color: white;
-  background-color: transparent;
-}
-
-#main-nav-bar a:hover{
-  color: darkblue;
-  background-color: transparent;
-}
-
 
 .horizontal {
     display: inline;
@@ -203,8 +120,13 @@ body{
 #news {
     border: 1px solid #009587;
     border-radius: 20px;
-    margin-top: 60px;
-    background-color: white;
+}
+
+#news ul {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 #news a{
   color:#009587
@@ -216,50 +138,11 @@ body{
 
 /*------RIGHT COLUMN------*/
 
-.ad {
-    height: 170px;
-    width: 298px;
-}
-
-
-.ad-bottom-buffer {
-  height: 15px;
-  /*border-top: 1px solid #444;
-  border-bottom: 1px solid #444;*/
-}
-
 .potm {
-  /*border-top: 1px solid #444;
-  border-bottom: 1px solid #444;*/
-  position: fixed;
-  bottom: 0;
-  padding-right: 5px;
-  padding-bottom: 2px;
-  /*vertical-align: bottom;*/
-  background-color: white;
   border-radius: 20px;
   border: 1px solid #009587;
+  margin-bottom: 20px;
 }
-/*.potm::after {
-  content:"";
-  background: black;
-  position: absolute;
-  bottom: 0;
-  left: 15%;
-  height: 1px;
-  width: 70%;
-}
-
-
-.potm::before {
-  content:"";
-  background: black;
-  position: absolute;
-  top: 0;
-  left: 15%;
-  height: 1px;
-  width: 70%;
-}*/
 
 .potm-title {
   border-bottom: 1px solid #000;
@@ -280,16 +163,22 @@ body{
   font-size: x-small;
 }
 
-.potm-descript{
-  background-color: white;
-}
-
 .potm-button {
   margin-bottom: 5px;
   background-color: #009587;
 }
 
+.statistics-styling {
+  background-color: transparent;
+  padding-top: 20px;
+  border: none;
+  padding-right: 0px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  box-shadow: none !important;
+}
 
-
-
+/* ul > li:nth-of-type(odd) {
+    background-color: white;
+} */
 /*------RIGHT COLUMN------*/

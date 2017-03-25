@@ -1,8 +1,9 @@
-.navbar-inverse{
-  background-color: #009587;
+body {
+  padding-top: 55px;
+  background-color: #fafafa;
 }
+
 #main{
-  margin-left: 350px;
   margin-top: 75px;
 }
 #map{
@@ -17,4 +18,29 @@
 
 #radius{
   width:8%
+}
+/* NAVBAR AND NAV-PILLS*/
+
+.navbar-inverse{
+  position: absolute;
+  background-color: #009587;
+}
+
+.navbar-buttons{
+  background-color: #009587;
+}
+
+.navbar-header{
+  position: absolute;
+  left: 45%
+}
+
+.nav-pills > li > a {
+  color: #009587;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color:black;
+    background-color: transparent;
 }

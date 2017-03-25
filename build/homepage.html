@@ -15,181 +15,70 @@
 </head>
 
 <body>
-    <!-- All of your HTML will go between here.... -->
-    <nav class="navbar navbar-default">
+<div id="ui-01"></div>
 
-        <div id="navbar" class="container">
-            <div class="row" style="background-color:#009587">
-                <!--*******SEARCH BAR*******-->
-                <div class="col-md-4 pull-left">
-
-                    <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                            <input type="text" class="form-control input-lg" placeholder="" />
-                            <span class="input-group-btn">
-                <button class="btn btn-info btn-lg" type="button">
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
-              </span>
-                        </div>
-                    </div>
-                </div>
-                <!--*******SEARCH BAR*******-->
-                <!--*******TITLE*******-->
-                <div id="title" class="navbar-header">
-                    <a class="navbar-brand" href="#">
-                        <font color="ffffff">
-                            <span class="glyphicon glyphicon-heart-empty logo-text"></span>LitterBox</font>
-                    </a>
-                </div>
-                <!--*******TITLE*******-->
-                <!--*******PROFILE IMAGE*******-->
-                <div id="profile_image" class="pull-right">
-                    <img src="img/blank_profile.png" width="100%" />
-                </div>
-                <div id="login" class="pull-right">
-                    <a href="#">Login</a>
-                </div>
-                <!--*******PROFILE IMAGE*******-->
-            </div>
+  <!-- NAVBAR -->
+  <nav class="navbar-inverse navbar-default navbar-fixed-top .navbar-inverse">
+    <div class="container-fluid">
+      <!-- SEARCH BAR -->
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search specific pet or user">
         </div>
-
+        <button type="submit" class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </form>
+      <!-- HEADER -->
+      <div class="navbar-header">
+        <a class="navbar-brand .navbar-inverse .nav-brand" href="homepage.html">
+         <font color="5fcf80"><span class="glyphicon glyphicon-heart-empty"></span></font>
+         <font color="ffffff">LitterBox</font>
+        </a>
+      </div>
+      <!-- RIGHT ALLIGNED ITEMS -->
+      <div class="btn-toolbar pull-right" role="toolbar">
+        <div class="btn-group" role="group">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle navbar-btn"
+              data-toggle="dropdown">
+              <span class="glyphicon glyphicon-user"></span>
+            </button>
+              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="profile_1.html">Profile</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Support</a></li>
+                <li class="divider"></li>
+                <li><a href="profile_2.html">Edit profile</a></li>
+                <li><a href="#">Log out</a></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     </nav>
+
+    <ul class="nav nav-pills nav-justified">
+      <li role="presentation" class="active"><a href="homepage.html"><span class="glyphicon glyphicon-heart"></span> Home</a></li>
+      <li role="presentation"><a href="findpets.html"><span class="glyphicon glyphicon-search"></span> Find</a></li>
+      <li role="presentation"><a href="list.html"><span class="glyphicon glyphicon-list-alt   "></span> List</a></li>
+      <li role="presentation"><a href="shelters.html"><span class="glyphicon glyphicon-home"></span> Shelters</a></li>
+      <li role="presentation"><a href="petofthemonth.html"><span class="glyphicon glyphicon-star"></span> Pet of the Month</a></li>
+    </ul>
 
     <!-- main body -->
     <!-- left column -->
-    <div class="col-md-2" id="left-sidebar">
-
-        <!-- buttons -->
-        <!-- <div class="row">
-            <div class="col-md-12" id="left-sidebar-buttons">
-                <div class="btn-group-vertical sidebar-button">
-                    <button type="button" class="btn btn-primary sidebar-button">Find/Browse</button>
-                    <button type="button" class="btn btn-primary sidebar-button">List</button>
-                    <button type="button" class="btn btn-primary sidebar-button">Shelters</button>
-                </div>
-            </div>
-        </div> -->
-        <div class="row animals-title">
-            <h5>Your Animals</h5>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12" style="display: block;">
-                <ul class="list-unstyled">
-                    <!-- listed animals list -->
-                    <li>
-                        <h5 style="color: white;"><span class="label label-default left-column-list-label">Listed</span></h5>
-                        <!-- <span class="glyphicon glyphicon-stop"><b>  Listed</b></span> -->
-                        <ul class="left-column-list">
-                            <li class="media left-column-list-item">
-                                <div class="media-left media-middle">
-                                    <img class="media-object listing-img" src="img/listed1.jpg" />
-                                </div>
-                                <div class="media-body media-middle">
-                                    "Cat&tube"
-                                </div>
-                            </li>
-                            <li class="media left-column-list-item">
-                                <div class="media-left media-middle">
-                                    <img class="media-object listing-img" src="img/listed2.jpg" />
-                                </div>
-                                <div class="media-body media-middle">
-                                    "nice dog"
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- favorited animals list -->
-                    <li>
-                        <h5 style="color: white;"><span class="label label-default left-column-list-label">Favorited</span></h5>
-                        <ul class="left-column-list">
-                            <li class="media left-column-list-item">
-                                <div class="media-left media-middle">
-                                    <img class="media-object listing-img" src="img/fav1.jpg" />
-                                </div>
-                                <div class="media-body media-middle">
-                                    "Smuggers"
-                                </div>
-                            </li>
-                            <li class="media left-column-list-item">
-                                <div class="media-left media-middle">
-                                    <img class="media-object listing-img" src="img/fav2.jpg" />
-                                </div>
-                                <div class="media-body media-middle">
-                                    "goat4u"
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <li style="height: 10px;">
-
-                        </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row animals-title">
-            <h5>Animals in Your Area</h5>
-        </div>
-        <div class="row">
-          <!-- <li> -->
-              <ul class="media-list left-column-list">
-                  <li class="media left-column-list-item">
-                      <div class="media-left media-middle">
-                          <img class="media-object listing-img" src="img/fav1.jpg" />
-                      </div>
-                      <div class="media-body media-middle">
-
-                        <div class="col-md-8">
-                          "Smuggers"
-                        </div>
-                          <div class="col-md-4">
-                          <p class="in-area-text">
-                            4 mi.
-                          </p>
-                          </div>
-                      </div>
-                  </li>
-                  <li class="media left-column-list-item">
-                      <div class="media-left media-middle">
-                          <img class="media-object listing-img" src="img/fav2.jpg" />
-                      </div>
-                      <div class="media-body media-middle">
-                        <div class="col-md-8">
-                          "goat4u"
-                        </div>
-                          <div class="col-md-4">
-                          <p class="in-area-text">
-                            6 mi.
-                          </p>
-                          </div>
-                      </div>
-                  </li>
-                  <li class="media left-column-list-item" style="height: 150px;">
-
-                  </li>
-              </ul>
-          <!-- </li> -->
-        </div>
+    <div class="col-md-3" id="leftcolumn">
+        <!--React Magic!-->
     </div>
 
 
     <!--********MIDDLE COLUMN******** -->
-    <div id="main-nav-bar" class="col-md-6">
-        <ul class="nav navbar-nav">
-            <li class="horizontal"><a href="#">Find/Browse</a></li>
-            <li class="horizontal"><a href="#">List</a></li>
-            <li class="horizontal"><a href="#">Shelters</a></li>
-        </ul>
-
-        <br></br>
-        <h1 class="text-center" style="color:#009587">NEWS</h1>
-
+    <div class="col-md-6">
         <div id="news" style="overflow-y: hidden; height:400px;">
-
+          <h1 class="home-header">News</h1>
             <ul class="media-list">
-
                 <li class="media">
                     <div class="media-left media-top">
                         <span class="glyphicon glyphicon-hand-right"></span>
@@ -213,8 +102,6 @@
                 </div>
                 this is overflow.
             </ul>
-
-
         </div>
     </div>
 
@@ -222,31 +109,31 @@
 
     <!-- right column -->
     <div class="col-md-3">
-        <div class="container">
-            <div class="row column-top-spacer">
-                <!-- spacer -->
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-
-                </div>
-                <!-- <span class="label label-default" style="width=100%;"> please check out our sponsors! </span> -->
-            </div>
+        <!-- Web site statistics -->
+        <div class="row potm">
+          <div class="panel panel-default statistics-styling">
+              <h3 class="panel-title text-center">Statistics</h3>
+              <div class="panel-body">
+                <ul>
+                  <li>
+                    Total # of adoptions: 0
+                  </li>
+                  <li>
+                    # of registered users: 0
+                  </li>
+                  <li>
+                    # of adoptable pets: 0
+                  </li>
+                  <li>
+                    # of litters: 0
+                  </li>
+                  <li>
+                    Total # of pets: 0
+                  </li>
+                </ul>
+              </div>
+          </div>
         </div>
-
-        <!-- ad row -->
-        <div class="row">
-            <div class="col-md-12">
-                <span class="label label-default"> please check out our sponsors! </span>
-                <div class="ad">
-                    <img class="ad" src="img/08_19_09_diagram.jpg" />
-                </div>
-                <div class="ad-bottom-buffer">
-
-                </div>
-            </div>
-        </div>
-
         <!-- potm row -->
         <div class="row potm">
             <div class="col-md-12">
@@ -254,7 +141,7 @@
                 <h4 class="text-center">Pet of the Month</h4>
                 <div class="media">
                     <div class="media-left">
-                        <img class="media-object potm-image" src="img/potm.jpeg" />
+                        <img class="media-object potm-image img-rounded" src="img/potm.jpeg" />
                     </div>
                     <div class="media-body">
                         <h5 class="potm-title">name</h5>
@@ -280,10 +167,6 @@
         </div>
 
     </div>
-    </div>
-
-    </div>
-
 
     <!-- ...and here. -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -291,6 +174,8 @@
     <!-- Include all compiled plugins (below),
     or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!--my code -->
+    <script src="js/app.js"></script>
 </body>
 
 </html>
