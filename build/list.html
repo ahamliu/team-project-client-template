@@ -17,158 +17,16 @@
 <!-- BODY -->
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar-inverse navbar-default navbar-fixed-top .navbar-inverse">
-    <div class="container-fluid">
-      <!-- SEARCH BAR -->
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search specific pet or user">
-        </div>
-        <button type="submit" class="btn btn-default">
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </form>
-      <!-- HEADER -->
-      <div class="navbar-header">
-        <a class="navbar-brand .navbar-inverse .nav-brand" href="homepage.html">
-         <font color="5fcf80"><span class="glyphicon glyphicon-heart-empty"></span></font>
-         <font color="ffffff">LitterBox</font>
-        </a>
-      </div>
-      <!-- RIGHT ALLIGNED ITEMS -->
-      <div class="btn-toolbar pull-right" role="toolbar">
-        <div class="btn-group" role="group">
-          <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle navbar-btn"
-              data-toggle="dropdown">
-              <span class="glyphicon glyphicon-user"></span>
-            </button>
-              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="profile_1.html">Profile</a></li>
-                <li><a href="#">Messages</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Support</a></li>
-                <li class="divider"></li>
-                <li><a href="profile_2.html">Edit profile</a></li>
-                <li><a href="#">Log out</a></li>
-              </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
 <!-- HEADING -->
-<ul class="nav nav-pills nav-justified">
-  <li role="presentation"><a href="homepage.html"><span class="glyphicon glyphicon-heart"></span> Home</a></li>
-  <li role="presentation"><a href="findpets.html"><span class="glyphicon glyphicon-search"></span> Find</a></li>
-  <li role="presentation" class="active"><a href="list.html"><span class="glyphicon glyphicon-list-alt   "></span> List</a></li>
-  <li role="presentation"><a href="shelters.html"><span class="glyphicon glyphicon-home"></span> Shelters</a></li>
-  <li role="presentation"><a href="petofthemonth.html"><span class="glyphicon glyphicon-star"></span> Pet of the Month</a></li>
-</ul>
+
 <!-- CONTAINS LEFT, MAIN, AND RIGHT PANELS -->
-<div class = "container">
-  <div class = "row">
-
-    <!-- Left Column -->
-    <div class="col-md-2">
-
-    </div>
-    <!-- Center Column -->
-      <div class="col-md-8">
-        <div class="panel panel-default">
-          <div class="panel-body .panel-body">
-            <!---->
-            <form>
-              <div class="form-inline .forminline">
-                <div class="form-group .form-group">
-                  <label for="formGroupExampleInput">Type</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="(eg. cat, dog)">
-                </div>
-                <div class="form-group">
-                  <label for="formGroupExampleInput2">Breed</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="(eg. siamese)">
-                </div>
-              </div>
-              <!---->
-              <label for="exampleTextarea">Gender</label>
-              <div class="form-check form-check-inline .form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genderRadio1" value="Male"> Male
-                </label>
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genderRadio2" value="Female"> Female
-                </label>
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="genderRadio3" value="Unknown"> Unknown
-                </label>
-              </div>
-              <!---->
-              <label for="exampleTextarea">Age</label>
-              <div class="form-check form-check-inline .form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ageRadio1" value="Infant"> Infant
-                </label>
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ageRadio2" value="Young"> Young
-                </label>
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ageRadio3" value="Adult"> Adult
-                </label>
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ageRadio4" value="Senior"> Senior
-                </label>
-              </div>
-              <!---->
-              <div class="form-group">
-                <label for="formGroupExampleInput2">Location</label>
-                <input type="text" class="form-control" id="locationInput" aria-describedby="locationHelp" placeholder="Enter location">
-                <small id="locationHelp" class="form-text text-muted">City, State or Zip.</small>
-              </div>
-              <!---->
-
-              <div class="form-group list-description">
-                <label for="descriptionTextarea">Description</label>
-                <textarea class="form-control" id="desctriptionTextarea" placeholder="Enter description" rows="10"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="characteristicsInput">Key characteristics</label>
-                <input type="text" class="form-control" id="characteristicsInput" aria-describedby="characteristicHelp" placeholder="Enter characteristics">
-                <small id="characteristicHelp" class="form-text text-muted">i.e. friendly, smelly, etc.</small>
-              </div>
-              <!---->
-              <label for="exampleTextarea">Is this pet part of a litter?</label>
-              <div class="form-check form-check-inline .form-check">
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ageRadio1" value="Infant"> Yes
-                </label>
-                <label class="form-check-label">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ageRadio2" value="Young"> No
-                </label>
-              </div>
-
-              <!---->
-              <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                <small id="fileHelp" class="form-text text-muted">Add a picture of your pet!</small>
-              </div>
-              <!---->
-              <div class= "pull-right">
-                <a class="btn btn-primary" href="listing.html" role="button">View listing</a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="list"></div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <!-- App code -->
-  <script src="js/bundle.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
