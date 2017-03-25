@@ -72,3 +72,8 @@ body {
   background-color: #337ab7;
   border-color: #337ab7;
 }
+
+.comments-body{
+  max-height: 100;
+  overflow-y: scroll;
+}
