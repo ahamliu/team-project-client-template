@@ -32,6 +32,10 @@ else if (document.getElementById('homepage') !== null) {
     <LeftColumn />,
     document.getElementById('leftcolumn')
   );
+  ReactDOM.render(
+    <RightColumn />,
+    document.getElementById('rightcolumn')
+  );
 
 }
 
@@ -69,19 +73,6 @@ else if (document.getElementById('profile_2') !== null) {
   ReactDOM.render(
     <UserList2 />,
     document.getElementById('userList2')
-  );
-}
-else if (document.getElementById('leftcolumn') !== null) {
-  ReactDOM.render(
-    <LeftColumn />,
-    document.getElementById('leftcolumn')
-  );
-
-}
-else if (document.getElementById('rightcolumn') !== null){
-  ReactDOM.render(
-    <RightColumn />,
-    document.getElementById('rightcolumn')
   );
 }
 else if (document.getElementById('monthlypet') !== null){
