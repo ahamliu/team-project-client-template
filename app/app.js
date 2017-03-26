@@ -10,6 +10,7 @@ import UserList from './components/userList.js'
 import Profile2 from './components/profile_2.js'
 import Rating2 from './components/rating2.js'
 import UserList2 from './components/userList2.js'
+import LeftColumn from './components/leftcolumn.js'
 
 
 
@@ -23,6 +24,15 @@ if (document.getElementById('listing') !== null) {
     document.getElementById('listing')
   );
 }
+
+else if (document.getElementById('homepage') !== null) {
+  ReactDOM.render(
+    <LeftColumn />,
+    document.getElementById('leftcolumn')
+  );
+
+}
+
 else if (document.getElementById('list') !== null) {
   ReactDOM.render(
     <List />,
