@@ -10,6 +10,9 @@ import UserList from './components/userList.js'
 import Profile2 from './components/profile_2.js'
 import Rating2 from './components/rating2.js'
 import UserList2 from './components/userList2.js'
+import RightColumn from './components/rightcolumn.js'
+import PetOfTheMonth from './components/petofthemonth.js'
+import LeftColumn from './components/leftcolumn.js'
 
 
 
@@ -57,5 +60,24 @@ else if (document.getElementById('profile_2') !== null) {
   ReactDOM.render(
     <UserList2 />,
     document.getElementById('userList2')
+  );
+}
+else if (document.getElementById('leftcolumn') !== null) {
+  ReactDOM.render(
+    <LeftColumn />,
+    document.getElementById('leftcolumn')
+  );
+
+}
+else if (document.getElementById('rightcolumn') !== null){
+  ReactDOM.render(
+    <RightColumn />,
+    document.getElementById('rightcolumn')
+  );
+}
+else if (document.getElementById('monthlypet') !== null){
+  ReactDOM.render(
+    <PetOfTheMonth />,
+    document.getElementById('monthlypet')
   );
 }
