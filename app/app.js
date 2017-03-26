@@ -26,6 +26,15 @@ if (document.getElementById('listing') !== null) {
     document.getElementById('listing')
   );
 }
+
+else if (document.getElementById('homepage') !== null) {
+  ReactDOM.render(
+    <LeftColumn />,
+    document.getElementById('leftcolumn')
+  );
+
+}
+
 else if (document.getElementById('list') !== null) {
   ReactDOM.render(
     <List />,
