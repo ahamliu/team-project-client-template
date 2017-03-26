@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
       </div>
       <div className="row border">
         <div className="col-md-12">
-          <span className="glyphicon glyphicon-user" aria-hidden="true"> Bio</span><br></br>
+          <span className="glyphicon glyphicon-user" aria-hidden="true"></span> Bio<br></br>
           {this.props.children}</div>
       </div>
       <div className="row">

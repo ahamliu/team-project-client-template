@@ -5,13 +5,14 @@ import PostHistoryC from './postHistoryC.js'
 
 
 
-export default class UserList extends React.Component {
+export default class UserList2 extends React.Component {
   render() {
     return (
       <div className="row">
         <div className="col-md-12">
             <div className= "row wishHistoryBorder">
               <span className="glyphicon glyphicon-heart" aria-hidden="true"></span> Wish List
+              <a href="#"><span className="glyphicon glyphicon-pencil pull-right">edit</span></a>
                 <div className= "col-md-12">
                   <div className= "row panel_padding">
                     <WishList date="Yesterday at 3:48pm" location="Amherst, MA">Want to adopt a poodle, hopefully near Amherst.</WishList>
