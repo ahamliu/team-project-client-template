@@ -17,20 +17,21 @@ body {
   left: 45%
 }
 
+.nav-pills > li > a:focus, .nav-pills > li > a:hover {
+   color: #5fcf80;
+   background-color: transparent;
+ }
+
 .nav-pills > li > a {
    color: #009587;
    font-family: 'Oswald', sans-serif;
    font-size: 1.5em;
  }
+
  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
      color:black;
      background-color: transparent;
  }
-
-.criteria-formatting {
-  margin-left: 300px;
-  margin-right: 300px;
-}
 
 .results-formatting {
   resize: none;
@@ -48,6 +49,10 @@ body {
   padding-right: 0px;
 }
 
+.result-list-formatting{
+  list-style-type: none
+}
+
 .borderlist {
     list-style-position:inside;
     border: 1px solid black;
@@ -55,4 +60,13 @@ body {
 
 .dropdown-format {
   display: inline-block;
+}
+
+a {
+  color: #009587;
+}
+
+a:hover {
+  color: #5fcf80;
+  text-decoration: none;
 }
