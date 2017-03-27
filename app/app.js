@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 
 // Each major browser view user interface must be imported.
 import Listing from './components/listing.js';
-import List from './components/list.js'
-import Profile from './components/profile.js'
-import Rating from './components/rating.js'
-import UserList from './components/userList.js'
-import Profile2 from './components/profile_2.js'
-import Rating2 from './components/rating2.js'
-import UserList2 from './components/userList2.js'
-import RightColumn from './components/rightcolumn.js'
-import PetOfTheMonth from './components/petofthemonth.js'
-import LeftColumn from './components/leftcolumn.js'
+import List from './components/list.js';
+import Profile from './components/profile.js';
+import Rating from './components/rating.js';
+import UserList from './components/userList.js';
+import Profile2 from './components/profile_2.js';
+import Rating2 from './components/rating2.js';
+import UserList2 from './components/userList2.js';
+import RightColumn from './components/rightcolumn.js';
+import PetOfTheMonth from './components/petofthemonth.js';
+import LeftColumn from './components/leftcolumn.js';
+import Findpets from './components/findpets.js';
 
 
 
@@ -80,5 +81,12 @@ else if (document.getElementById('petofthemonth') !== null){
   ReactDOM.render(
     <PetOfTheMonth />,
     document.getElementById('petofthemonth')
+  );
+}
+
+else if (document.getElementById('results') !== null){
+  ReactDOM.render(
+    <Findpets />,
+    document.getElementById('results')
   );
 }

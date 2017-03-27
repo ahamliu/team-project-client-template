@@ -77,3 +77,8 @@ body {
   max-height: 100;
   overflow-y: scroll;
 }
+
+.nav-pills > li > a:focus, .nav-pills > li > a:hover {
+   color: #5fcf80;
+   background-color: transparent;
+ }
