@@ -124,6 +124,8 @@ body{
 #news {
     border: 1px solid #009587;
     border-radius: 20px;
+    overflow-y: hidden;
+    height:400px;
 }
 
 #news ul {
@@ -136,6 +138,9 @@ body{
   color:#009587
 }
 
+#news-overflow {
+  height: 1000px;
+}
 
 /*------MIDDLE COLUMN------*/
 

@@ -13,8 +13,8 @@ import UserList2 from './components/userList2.js';
 import RightColumn from './components/rightcolumn.js';
 import PetOfTheMonth from './components/petofthemonth.js';
 import LeftColumn from './components/leftcolumn.js';
-import ResultList from './components/resultlist.js';
-import NewsFeed from './components/newsfeed.js'
+import NewsFeed from './components/newsfeed.js';
+// import ResultList from './components/resultlist.js';
 
 // For each view conditionally determine which view to display
 // depending on if the ID is present in the HTML.
