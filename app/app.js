@@ -13,6 +13,7 @@ import UserList2 from './components/userList2.js'
 import RightColumn from './components/rightcolumn.js'
 import PetOfTheMonth from './components/petofthemonth.js'
 import LeftColumn from './components/leftcolumn.js'
+import NewsFeed from './components/newsfeed.js'
 
 
 
@@ -31,6 +32,10 @@ else if (document.getElementById('homepage') !== null) {
   ReactDOM.render(
     <LeftColumn />,
     document.getElementById('leftcolumn')
+  );
+  ReactDOM.render(
+    <NewsFeed />,
+    document.getElementById('newsfeed')
   );
   ReactDOM.render(
     <RightColumn />,
