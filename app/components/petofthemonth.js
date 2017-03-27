@@ -7,7 +7,6 @@ export default class PetOfTheMonth extends React.Component{
       return (
           <div>
           <Navbar/>
-          <PoTM/>
           </div>
       );
   }

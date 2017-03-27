@@ -27,6 +27,7 @@ if (document.getElementById('listing') !== null) {
   );
 }
 
+
 else if (document.getElementById('homepage') !== null) {
   ReactDOM.render(
     <LeftColumn />,
@@ -75,9 +76,9 @@ else if (document.getElementById('profile_2') !== null) {
     document.getElementById('userList2')
   );
 }
-else if (document.getElementById('monthlypet') !== null){
+else if (document.getElementById('petofthemonth') !== null){
   ReactDOM.render(
     <PetOfTheMonth />,
-    document.getElementById('monthlypet')
+    document.getElementById('petofthemonth')
   );
 }
