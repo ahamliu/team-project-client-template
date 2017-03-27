@@ -56,3 +56,8 @@ body {
 .story-text {
   font-size: 150%;
 }
+
+.nav-pills > li > a:focus, .nav-pills > li > a:hover {
+   color: #5fcf80;
+   background-color: transparent;
+ }
