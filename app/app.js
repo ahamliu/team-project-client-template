@@ -13,11 +13,7 @@ import UserList2 from './components/userList2.js';
 import RightColumn from './components/rightcolumn.js';
 import PetOfTheMonth from './components/petofthemonth.js';
 import LeftColumn from './components/leftcolumn.js';
-import Findpets from './components/findpets.js';
-
-
-
-
+import ResultList from './components/resultlist.js';
 
 // For each view conditionally determine which view to display
 // depending on if the ID is present in the HTML.
@@ -62,6 +58,7 @@ else if (document.getElementById('profile') !== null) {
     document.getElementById('userList')
   );
 }
+
 else if (document.getElementById('profile_2') !== null) {
   ReactDOM.render(
     <Profile2 image="img/userpic.jpg" name="Cardie"mobile="(000)000-0000" email="cardie@umass.edu" time = "5 years ago">A Umass student.</Profile2>,
@@ -76,6 +73,7 @@ else if (document.getElementById('profile_2') !== null) {
     document.getElementById('userList2')
   );
 }
+
 else if (document.getElementById('monthlypet') !== null){
   ReactDOM.render(
     <PetOfTheMonth />,
@@ -85,7 +83,7 @@ else if (document.getElementById('monthlypet') !== null){
 
 else if (document.getElementById('results') !== null){
   ReactDOM.render(
-    <Findpets />,
+    <ResultList />,
     document.getElementById('results')
   );
 }
