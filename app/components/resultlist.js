@@ -1,7 +1,7 @@
 import React from 'react'
 import Result from './result.js'
 
-export default class Findpets extends React.Component{
+export default class ResultList extends React.Component{
   render(){
     return (
       <div>
