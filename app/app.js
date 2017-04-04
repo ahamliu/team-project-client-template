@@ -14,6 +14,7 @@ import RightColumn from './components/rightcolumn.js';
 import PetOfTheMonth from './components/petofthemonth.js';
 import LeftColumn from './components/leftcolumn.js';
 import NewsFeed from './components/newsfeed.js';
+import ResultList from './components/resultlist.js';
 // import ResultList from './components/resultlist.js';
 
 // For each view conditionally determine which view to display
@@ -79,12 +80,7 @@ else if (document.getElementById('profile_2') !== null) {
     document.getElementById('userList2')
   );
 }
-<<<<<<< HEAD
-else if (document.getElementById('petofthemonth') !== null){
-=======
-
 else if (document.getElementById('monthlypet') !== null){
->>>>>>> 8eef7ceb6e827c53243e32980b0bc35b9499162b
   ReactDOM.render(
     <PetOfTheMonth />,
     document.getElementById('petofthemonth')
