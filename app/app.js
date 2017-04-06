@@ -15,6 +15,9 @@ import PetOfTheMonth from './components/petofthemonth.js';
 import LeftColumn from './components/leftcolumn.js';
 import NewsFeed from './components/newsfeed.js';
 import ResultList from './components/resultlist.js';
+import FindpetFields from './components/findpetfields.js';
+import Navbar from './components/navbar.js';
+
 // import ResultList from './components/resultlist.js';
 
 // For each view conditionally determine which view to display
@@ -87,7 +90,15 @@ else if (document.getElementById('monthlypet') !== null){
   );
 }
 
-else if (document.getElementById('results') !== null){
+else if (document.getElementById('findpets') !== null) {
+  ReactDOM.render(
+    <Navbar />,
+    document.getElementById('navigation')
+  );
+  ReactDOM.render(
+    <FindpetFields />,
+    document.getElementById('fields')
+  );
   ReactDOM.render(
     <ResultList />,
     document.getElementById('results')
