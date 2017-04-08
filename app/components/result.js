@@ -8,7 +8,7 @@ export default class Result extends React.Component{
           <ul className="media-list">
             <li className="media">
               <div className="media-left">
-                <img className="img-rounded" src={this.props.image} />
+                PIC
               </div>
               <div className="media-body">
                 <div className="col-md-6">

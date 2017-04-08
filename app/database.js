@@ -6,8 +6,37 @@ var startupName = "Guava";
 
 // Put your mock objects here, as in Workshop 4
 var initialData = {
+  "animals": {
+    "1": {
+      "_id": 1,
+      "name": "Ekans",
+      "location": "Amherst, MA",
+      "type": "Milk Snake",
+      "age": "Adult",
+      "gender": "Unknown",
+      "characteristics": "Untrustworthy"
+    },
 
-};
+    "2": {
+      "_id": 2,
+      "name": "Harambe",
+      "location": "Cincinnati, OH",
+      "type": "Western Lowlands Gorilla",
+      "age": "Adult",
+      "gender": "Male",
+      "characteristics": "Heroic"
+    }
+  },
+  "resultlist": {
+    "1": {
+      "_id": 1,
+      "animal" :[1],
+      "animal" :[2]
+    }
+  }
+},
+
+
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {

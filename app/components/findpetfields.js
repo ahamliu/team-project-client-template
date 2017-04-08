@@ -1,36 +1,84 @@
 import React from 'react';
 
 export default class FindpetFields extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      locationName: "",
+      typeName: "",
+      subtypeName: "",
+      isInfant: false,
+      isYoung: false,
+      isAdult: false,
+      isSenior: false,
+      isMale: false,
+      isFemale: false,
+      isUnknown: false,
+      characteristicsName: ""
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+      const target = event.target;
+      const value = target.type;
+      value === 'checkbox'? target.checked : target.value;
+      const name = target.name;
+
+      this.setState({
+        [name]: value
+      });
+  }
+// When search button is pushed
+  handleSearch(e){
+    e.preventDefault();
+    var locationText = this.state.location.trim();
+    var typeText = this.state.type.trim();
+    var subtypeText = this.state.subtype.trim();
+    var ageText = this.state.age.trim();
+    var genderText = this.state.gender.trim();
+    var characteristicsText = this.state.characteristics.trim();
+    if(locationText !== ""){
+
+    }
+  }
+
+// Handle changes in input text areas
+  handleChange(e) {
+   e.preventDefault();
+   this.setState({value: e.target.value});
+ }
+
   render(){
       return (
         <form>
           <div className="form-group">
             <label htmlFor="location">Location</label>
-            <input type="text" className="form-control" id="location" aria-describedby="locationHelp" placeholder="Enter location" />
-            <small id="locationHelp" className="form-text text-muted">City, State or Zip.</small>
+            <input type="text" className="form-control" placeholder="Enter location"
+               name="locationName" value={this.state.location} onChange={this.handleInputChange} />
+             <small className="form-text text-muted">City, State or Zip.</small>
           </div>
           <div className="form-group">
-            <label htmlFor="type">Type</label>
-            <select className="form-control" id="type">
-              <option>Any</option>
-              <option>Dog</option>
-              <option>Cat</option>
-              <option>Bird</option>
-              <option>Small and fluffy</option>
-              <option>Horse</option>
-              <option>Reptile</option>
-              <option>Aquatic</option>
-              <option>Pig</option>
-              <option>Barnyard</option>
-              <option>Exotic</option>
-              <option>Other</option>
+            <label>Type</label>
+            <select className="form-control" name="typeName" value={this.state.type}>
+              <option value="any">Any</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="bird">Bird</option>
+              <option value="smallandfluffy">Small and fluffy</option>
+              <option value="horse">Horse</option>
+              <option value="reptile">Reptile</option>
+              <option value="aquatic">Aquatic</option>
+              <option value="pig">Pig</option>
+              <option value="barnyard">Barnyard</option>
+              <option value="exotic">Exotic</option>
+              <option value="other">Other</option>
             </select>
           </div>
-          <div className="form-group disabled">
-            <label htmlFor="sub-type">Sub-type (breed)</label>
-            <select className="form-control" id="sub-type">
-              <option>Please select type</option>
-            </select>
+          <div className="form-group">
+            <label>Sub-type (breed)</label>
+            <input type="text" className="form-control" placeholder="Enter breed" name="subtypeName"
+              value={this.state.subtype} onChange={this.handleInputChange} />
           </div>
 
           <row>
@@ -39,22 +87,26 @@ export default class FindpetFields extends React.Component{
                 <label htmlFor="age">Age</label>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="ageCheckboxI" value="optionInfant" /> infant
+                    <input className="form-check-input" type="checkbox" name="isInfant" checked={this.state.isInfant}
+                      onChange={this.handleInputChange} /> infant
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="ageCheckboxY" value="optionYoung" /> Young
+                    <input className="form-check-input" type="checkbox" name="isYoung" checked={this.state.isYoung}
+                      onChange={this.handleInputChange} /> Young
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="ageCheckboxA" value="optionAdult" /> Adult
+                    <input className="form-check-input" type="checkbox" name="isAdult" checked={this.state.isAdult}
+                      onChange={this.handleInputChange}/> Adult
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="ageCheckboxS" value="optionSenior" /> Senior
+                    <input className="form-check-input" type="checkbox" name="isSenior" checked={this.state.isSenior}
+                      onChange={this.handleInputChange} /> Senior
                   </label>
                 </div>
               </div>
@@ -64,17 +116,20 @@ export default class FindpetFields extends React.Component{
                 <label htmlFor="age">Gender</label>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="genderCheckboxM" value="optionMale" /> Male
+                    <input className="form-check-input" type="checkbox" name="isMale" checked={this.state.isMale}
+                      onChange={this.handleInputChange}/> Male
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="genderCheckboxF" value="optionFemale" /> Female
+                    <input className="form-check-input" type="checkbox" name="isFemale" checked={this.state.isFemale}
+                      onChange={this.handleInputChange}/> Female
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" id="genderCheckboxU" value="optionUknown" /> Unknown
+                    <input className="form-check-input" type="checkbox" name="isUnknown" checked={this.state.isUnknown}
+                      onChange={this.handleInputChange} /> Unknown
                   </label>
                 </div>
               </div>
@@ -83,7 +138,8 @@ export default class FindpetFields extends React.Component{
 
           <div className="form-group pull-left">
             <label htmlFor="characteristics">Characteristics</label>
-            <input type="email" className="form-control" id="characteristic" aria-describedby="characteristicsHelp" placeholder="Enter characteristics" />
+            <input type="text" className="form-control" placeholder="Enter characteristics" name="characteristicName"
+              value={this.state.characteristic} onChange={this.handleInputChange} />
             <small id="characteristicsHelp" className="form-text text-muted">i.e. friendly, smelly, etc.</small>
           </div>
         </form>
