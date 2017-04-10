@@ -7,17 +7,19 @@ export default class Listingcontent extends React.Component{
         <div className="panel-body">
 
 
-          <img src="img/sample-pet.jpg" className="myImage"/>
+          <img src={this.props.imgURL} className="myImage"/>
           <div className="card-f">
-            Listing created: 1 day ago
+            Listing created: {new Date(this.props.date).toLocaleString()}
           </div>
-          <p className="cdtxt .cdtxt"><b>Type: </b>Cat</p>
-          <p className="cdtxt .cdtxt"><b>Breed: </b>Ragdoll</p>
-          <p className="cdtxt"><b>Gender: </b>Female</p>
-          <p className="cdtxt"><b>Age: </b>1 year</p>
-          <p className="cdtxt"><b>Zip Code: </b>01002</p>
+          <p className="cdtxt .cdtxt"><b>Name: </b>{this.props.name}</p>
+          <p className="cdtxt .cdtxt"><b>Type: </b>{this.props.type}</p>
+          <p className="cdtxt .cdtxt"><b>Breed: </b>{this.props.breed}</p>
+          <p className="cdtxt"><b>Gender: </b>{this.props.gender}</p>
+          <p className="cdtxt"><b>Age: </b>{this.props.age}</p>
+          <p className="cdtxt"><b>Location: </b>{this.props.location}</p>
+          <p className="cdtxt"><b>Characteristics: </b>{this.props.characteristics.join(", ")}</p>
           <p className="cdtxt"><b>Description: </b>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque commodo tellus dolor, nec vestibulum dolor posuere in. Etiam tempor neque dui, ut ullamcorper est venenatis ac. Morbi tempor justo eu massa congue, eu aliquet odio mattis. Sed a mattis lectus. Cras tempor velit eget commodo auctor. Donec aliquam mollis nisl eu blandit.
+          {this.props.children}
           </p>
 
 

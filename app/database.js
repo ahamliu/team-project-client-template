@@ -6,6 +6,36 @@ var startupName = "Guava";
 
 // Put your mock objects here, as in Workshop 4
 var initialData = {
+  listing: {
+    "1": {
+      "location": "UMass Amherst, Field dorm",
+      "date": Date.now(),
+      "animals": [1],
+      "title": "Pet listing",
+      "description": "famous cat on reddit",
+      "comments": [1],
+      "_id": 1
+    }
+  },
+  animal: {
+    "1": {
+      "name": "Peanut",
+      "age": 999,
+      "type": "Cat",
+      "breed": "Main Coon",
+      "gender": "Male",
+      "characteristics": ["Fluffyyyyy", "CUTE"],
+      "imgURL": "img/sample-pet.jpg",
+      "_id": 1
+    }
+  },
+  comment: {
+    "1": {
+      "author": "Kai",
+      "text": "HELLO I LIKE YOUR CAT hehe xd",
+      "_id": 1
+    }
+  }
 
 };
 
@@ -32,7 +62,6 @@ export function readDocument(collection, id) {
   // *copy* of an object and not the object itself.
   return JSONClone(data[collection][id]);
 }
-
 /**
  * Emulates writing a "document" to a NoSQL database.
  */
@@ -85,3 +114,4 @@ ReactDOM.render(
   <ResetDatabase />,
   document.getElementById('db-reset')
 );
+console.log("test")
