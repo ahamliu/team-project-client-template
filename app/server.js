@@ -38,4 +38,5 @@ function syncListing(listing){
   listing.comments = listing.comments.map((commentid) => {
     return readDocument("comment", commentid)
   })
+  listing.author = readDocument("user", listing.author)
 }

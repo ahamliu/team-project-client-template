@@ -11,6 +11,7 @@ export default class Listing extends React.Component{
     super(props)
     console.log("test")
     this.state = {
+      "author": "",
       "location": "",
       "date": Date.now(),
       "animals": [],

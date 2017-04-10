@@ -14,7 +14,8 @@ var initialData = {
       "title": "Pet listing",
       "description": "famous cat on reddit",
       "comments": [1],
-      "_id": 1
+      "_id": 1,
+      "author": 1
     }
   },
   animal: {
@@ -35,8 +36,16 @@ var initialData = {
       "text": "HELLO I LIKE YOUR CAT hehe xd",
       "_id": 1
     }
+  },
+  user: {
+    "1": {
+      "author": "Amy Ham Liu",
+      "location": "Amherst, MA. USA",
+      "ratings": 1,
+      "imgURL": "img/sample-user.jpg",
+      "_id": 1
+    }
   }
-
 };
 
 var data = JSON.parse(localStorage.getItem(startupName));
