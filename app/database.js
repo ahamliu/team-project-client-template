@@ -106,8 +106,10 @@ var initialData = {
       "_id": 1,
       "contents": []
     }
-  }
-};
+  },
+  "querylist": []
+}
+
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {
@@ -168,20 +170,19 @@ export function resetDatabase() {
 /**
  * Reset database button.
  */
-class ResetDatabase extends React.Component {
-  render() {
-    return (
-      <button className="btn btn-default" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
-      }}>Reset Mock DB</button>
-    );
-  }
-}
+ class ResetDatabase extends React.Component {
+   render() {
+     return (
+       <button className="btn btn-default" type="button" onClick={() => {
+         resetDatabase();
+         window.alert("Database reset! Refreshing the page now...");
+         document.location.reload(false);
+       }}>Reset Mock DB</button>
+     );
+   }
+ }
 
-ReactDOM.render(
-  <ResetDatabase />,
-  document.getElementById('db-reset')
-);
-console.log("test")
+ ReactDOM.render(
+   <ResetDatabase />,
+   document.getElementById('db-reset')
+ );

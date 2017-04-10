@@ -49,6 +49,7 @@ export function postListing(newListing, userid, cb){
   emulateServerReturn(newListing, cb)
 }
 
+
 function syncUser(user){
     var feedid = user.feed
     user.feed = readDocument("feeds", feedid)
@@ -58,7 +59,6 @@ export function getUserById(userid, cb) {
   syncUser(user)
   emulateServerReturn(user,cb)
 }
-
 function getFeedItemSync(feedItemId) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Resolve 'like' counter.
@@ -128,4 +128,19 @@ export function unlikeFeedItem(feedItemId, userId, cb) {
   }
   emulateServerReturn(feedItem.likeCounter.map((userId) => readDocument('users', userId)), cb);
 
+}
+
+
+export function findPets(location, type, subtype, age, gender, characteristics, queryListID, cb) {
+  var queryList = readDocument('queryList', queryListID);
+  queryList.push({
+    "searchDate": new Date().getTime(),
+    "location": location,
+    "type": type,
+    "subtype": subtype,
+    "age": age,
+    "gender": gender,
+    "characteristics": characteristics
+  });
+  //emulateServerReturn(getFeedItemSync(feedItemId), cb);
 }
