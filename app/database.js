@@ -45,69 +45,9 @@ var initialData = {
       "imgURL": "img/sample-user.jpg",
       "_id": 1
     }
-  },
-  "users": {
-    // This user has id "1".
-    "1": {
-      "_id": 1,
-      "fullName": "Someone",
-      "feed": 1
-    },
-    "2": {
-      "_id": 2,
-      "fullName": "Someone Else",
-      "feed": 2
-    },
-    "3": {
-      "_id": 3,
-      "fullName": "Another Person",
-      "feed": 3
-    },
-    // This is "you"!
-    "4": {
-      "_id": 4,
-      "fullName": "John Vilk",
-      // ID of your feed.
-      "feed": 4
-    }
-  },
-  // The 'feedItems' collection. Contains all of the feed items on our Facebook
-  // system.
-  "feedItems": {
-    "1": {
-      "_id": 1,
-      "likeCounter": [
-        2, 3
-      ],
-      "type": "statusUpdate",
-      "contents": {
-        "author": 1,
-        "postDate": 1453668480000,
-        "location": "Austin, TX",
-        "contents": "Cardie is the best!"
-      }
-    }
-  },
-  // "feeds" collection. Feeds for each FB user.
-  "feeds": {
-    "4": {
-      "_id": 4,
-      "contents": [1]
-    },
-    "3": {
-      "_id": 3,
-      "contents": []
-    },
-    "2": {
-      "_id": 2,
-      "contents": []
-    },
-    "1": {
-      "_id": 1,
-      "contents": []
-    }
   }
-};
+}
+
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {
@@ -168,20 +108,19 @@ export function resetDatabase() {
 /**
  * Reset database button.
  */
-class ResetDatabase extends React.Component {
-  render() {
-    return (
-      <button className="btn btn-default" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
-      }}>Reset Mock DB</button>
-    );
-  }
-}
+ class ResetDatabase extends React.Component {
+   render() {
+     return (
+       <button className="btn btn-default" type="button" onClick={() => {
+         resetDatabase();
+         window.alert("Database reset! Refreshing the page now...");
+         document.location.reload(false);
+       }}>Reset Mock DB</button>
+     );
+   }
+ }
 
-ReactDOM.render(
-  <ResetDatabase />,
-  document.getElementById('db-reset')
-);
-console.log("test")
+ ReactDOM.render(
+   <ResetDatabase />,
+   document.getElementById('db-reset')
+ );
