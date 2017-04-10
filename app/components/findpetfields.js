@@ -1,4 +1,5 @@
 import React from 'react';
+import {findPets} from '../server.js';
 
 export default class FindpetFields extends React.Component{
   constructor(props) {
@@ -43,17 +44,16 @@ export default class FindpetFields extends React.Component{
     if(e.target.checked) this.setState({ isMale: true });
   }
   handleFemale(e) {
-    if(e.target.checked) this.setState({ isFemalwe: true });
+    if(e.target.checked) this.setState({ isFemale: true });
   }
-  handleUknown(e) {
+  handleUnknown(e) {
     if(e.target.checked) this.setState({ isUnknown: true });
   }
   handleCharacteristics(e) {
     this.setState({ characteristicsName: e.target.value });
   }
 
-
-// When search button is pushed
+  // When find button is pushed
   handleSearch(e){
     e.preventDefault();
     var locationVal = this.state.locationName.trim();
@@ -83,12 +83,12 @@ export default class FindpetFields extends React.Component{
           <div className="form-group">
             <label htmlFor="location">Location</label>
             <input type="text" className="form-control" placeholder="Enter location"
-               name="locationName" value={this.state.location} onChange={(e) => this.handleLocation(e)} />
+                value={this.state.location} onChange={(e) => this.handleLocation(e)} />
              <small className="form-text text-muted">City, State or Zip.</small>
           </div>
           <div className="form-group">
             <label>Type</label>
-            <select className="form-control" name="typeName" value={this.state.type} onChange={(e) => this.handleType(e)}>
+            <select className="form-control" value={this.state.type} onChange={(e) => this.handleType(e)}>
               <option value="any">Any</option>
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
@@ -105,7 +105,7 @@ export default class FindpetFields extends React.Component{
           </div>
           <div className="form-group">
             <label>Sub-type (breed)</label>
-            <input type="text" className="form-control" placeholder="Enter breed" name="subtypeName"
+            <input type="text" className="form-control" placeholder="Enter breed"
               value={this.state.subtype} onChange={(e) => this.handleSubtype(e)} />
           </div>
 
@@ -115,25 +115,25 @@ export default class FindpetFields extends React.Component{
                 <label htmlFor="age">Age</label>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isInfant" checked={this.state.isInfant}
+                    <input className="form-check-input" type="checkbox" checked={this.state.isInfant}
                       onChange={(e) => this.handleInfant(e)} /> infant
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isYoung" checked={this.state.isYoung}
+                    <input className="form-check-input" type="checkbox" checked={this.state.isYoung}
                       onChange={(e) => this.handleYoung(e)} /> Young
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isAdult" checked={this.state.isAdult}
+                    <input className="form-check-input" type="checkbox" checked={this.state.isAdult}
                       onChange={(e) => this.handleAdult(e)}/> Adult
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isSenior" checked={this.state.isSenior}
+                    <input className="form-check-input" type="checkbox" checked={this.state.isSenior}
                       onChange={(e) => this.handleSenior(e)} /> Senior
                   </label>
                 </div>
@@ -144,20 +144,20 @@ export default class FindpetFields extends React.Component{
                 <label htmlFor="age">Gender</label>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isMale" checked={this.state.isMale}
+                    <input className="form-check-input" type="checkbox" checked={this.state.isMale}
                       onChange={(e) => this.handleMale(e)}/> Male
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isFemale" checked={this.state.isFemale}
+                    <input className="form-check-input" type="checkbox" checked={this.state.isFemale}
                       onChange={(e) => this.handleFemale(e)}/> Female
                   </label>
                 </div>
                 <div className="form-check">
                   <label className="form-check-label">
-                    <input className="form-check-input" type="checkbox" name="isUnknown" checked={this.state.isUnknown}
-                      onChange={(e) => this.handleUknown(e)} /> Unknown
+                    <input className="form-check-input" type="checkbox" checked={this.state.isUnknown}
+                      onChange={(e) => this.handleUnknown(e)}/> Unknown
                   </label>
                 </div>
               </div>

@@ -33,8 +33,9 @@ var initialData = {
       "animal" :[1],
       "animal" :[2]
     }
-  }
-},
+  },
+  "querylist": []
+}
 
 
 
