@@ -53,11 +53,11 @@ else if (document.getElementById('list') !== null) {
 
 else if (document.getElementById('profile') !== null) {
   ReactDOM.render(
-    <Profile image="img/userpic.jpg" name="Cardie" time = "5 years ago">A Umass student.</Profile>,
+    <Profile image="img/userpic.jpg" user={4}></Profile>,
     document.getElementById('profile')
   );
   ReactDOM.render(
-    <Rating />,
+    <Rating user={4}/>,
     document.getElementById('rating')
   );
   ReactDOM.render(

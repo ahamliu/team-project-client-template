@@ -45,6 +45,67 @@ var initialData = {
       "imgURL": "img/sample-user.jpg",
       "_id": 1
     }
+  },
+  users: {
+    // This user has id "1".
+    "1": {
+      "_id": 1,
+      "fullName": "Someone",
+      "feed": 1
+    },
+    "2": {
+      "_id": 2,
+      "fullName": "Someone Else",
+      "feed": 2
+    },
+    "3": {
+      "_id": 3,
+      "fullName": "Another Person",
+      "feed": 3
+    },
+    // This is "you"!
+    "4": {
+      "_id": 4,
+      "fullName": "Cardie",
+      "time": "5 years ago",
+      "bio": "I hate javascript",
+      // ID of your feed.
+      "feed": 4
+    }
+  },
+  "feedItems": {
+    "1": {
+      "_id": 1,
+      "likeCounter": [
+        2, 3
+      ],
+      "type": "statusUpdate",
+      "contents": {
+        "author": 1,
+        "postDate": 1453668480000,
+        "location": "Austin, TX",
+        "contents": "Cardie is the best!"
+      }
+    }
+  },
+  // "feeds" collection. Feeds for each FB user.
+  "feeds": {
+    "4": {
+      "_id": 4,
+      "contents": [1]
+    },
+    "3": {
+      "_id": 3,
+      "contents": []
+    },
+    "2": {
+      "_id": 2,
+      "contents": []
+    },
+    "1": {
+      "_id": 1,
+      "contents": []
+    }
   }
 };
 
