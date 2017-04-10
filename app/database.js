@@ -46,7 +46,7 @@ var initialData = {
       "_id": 1
     }
   },
-  "users": {
+  users: {
     // This user has id "1".
     "1": {
       "_id": 1,
@@ -66,13 +66,13 @@ var initialData = {
     // This is "you"!
     "4": {
       "_id": 4,
-      "fullName": "John Vilk",
+      "fullName": "Cardie",
+      "time": "5 years ago",
+      "bio": "I hate javascript",
       // ID of your feed.
       "feed": 4
     }
   },
-  // The 'feedItems' collection. Contains all of the feed items on our Facebook
-  // system.
   "feedItems": {
     "1": {
       "_id": 1,
