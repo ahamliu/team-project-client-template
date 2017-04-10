@@ -40,9 +40,88 @@ function syncListing(listing){
   })
   listing.author = readDocument("user", listing.author)
 }
+function syncUser(user){
+    var feedid = user.feed
+    user.feed = readDocument("feeds", feedid)
+}
+export function getUserById(userid, cb) {
+  var user = readDocument("users", userid)
+  syncUser(user)
+  emulateServerReturn(user,cb)
+}
+function getFeedItemSync(feedItemId) {
+  var feedItem = readDocument('feedItems', feedItemId);
+  // Resolve 'like' counter.
+  feedItem.likeCounter = feedItem.likeCounter.map((id) => readDocument('users', id));
+  feedItem.contents.author =
+    readDocument('users', feedItem.contents.author);
+  return feedItem;
+}
 
-export function findPets(location, type, subtype, age, gender, characteristics) {
-  var queryList = readDocument('queryList', Math.random().toString());
+export function getFeedData(user, cb) {
+  var userData = readDocument('users', user);
+  var feedData = readDocument('feeds', userData.feed);
+  feedData.contents = feedData.contents.map(getFeedItemSync);
+  emulateServerReturn(feedData, cb);
+}
+
+
+
+export function postStatusUpdate(user, location, contents, cb) {
+  var time = new Date().getTime();
+  // The new status update. The database will assign the ID for us.
+  var newStatusUpdate = {
+    "likeCounter": [],
+    "type": "statusUpdate",
+    "contents": {
+      "author": user,
+      "postDate": time,
+      "location": location,
+      "contents": contents
+    }//,
+    // List of comments on the post
+    //"comments": []
+  };
+
+  // Add the status update to the database.
+  // Returns the status update w/ an ID assigned.
+  newStatusUpdate = addDocument('feedItems', newStatusUpdate);
+
+  // Add the status update reference to the front of the current user's feed.
+  var userData = readDocument('users', user);
+  var feedData = readDocument('feeds', userData.feed);
+  feedData.contents.unshift(newStatusUpdate._id);
+
+  // Update the feed object.
+  writeDocument('feeds', feedData);
+
+  // Return the newly-posted object.
+  emulateServerReturn(newStatusUpdate, cb);
+}
+export function likeFeedItem(feedItemId, userId, cb) {
+  var feedItem = readDocument('feedItems', feedItemId);
+  // Normally, we would check if the user already liked this comment.
+  // But we will not do that in this mock server.
+  // ('push' modifies the array by adding userId to the end)
+  feedItem.likeCounter.push(userId);
+  writeDocument('feedItems', feedItem);
+  // Return a resolved version of the likeCounter
+  emulateServerReturn(feedItem.likeCounter.map((userId) => readDocument('users', userId)), cb);
+}
+
+export function unlikeFeedItem(feedItemId, userId, cb) {
+  var feedItem = readDocument('feedItems', feedItemId);
+  var userIndex = feedItem.likeCounter.indexOf(userId);
+  if (userIndex !== -1) {
+    feedItem.likeCounter.splice(userIndex, 1);
+    writeDocument('feedItems', feedItem);
+  }
+  emulateServerReturn(feedItem.likeCounter.map((userId) => readDocument('users', userId)), cb);
+}
+
+
+export function findPets(location, type, subtype, age, gender, characteristics, queryListID, cb) {
+  var queryList = readDocument('queryList', queryListID);
   queryList.push({
     "searchDate": new Date().getTime(),
     "location": location,
@@ -52,7 +131,5 @@ export function findPets(location, type, subtype, age, gender, characteristics) 
     "gender": gender,
     "characteristics": characteristics
   });
-  // Return a resolved version of the feed item so React can
-  // render it.
   //emulateServerReturn(getFeedItemSync(feedItemId), cb);
 }
