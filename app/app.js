@@ -57,7 +57,7 @@ else if (document.getElementById('profile') !== null) {
     document.getElementById('profile')
   );
   ReactDOM.render(
-    <Rating />,
+    <Rating user={4}/>,
     document.getElementById('rating')
   );
   ReactDOM.render(
