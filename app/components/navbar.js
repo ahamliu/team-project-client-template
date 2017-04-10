@@ -44,8 +44,6 @@ export default class Navbar extends React.Component {
               </div>
             </div>
           </div>
-          </nav>
-
           <ul className="nav nav-pills nav-justified">
             <li role="presentation"><a href="homepage.html"><span className="glyphicon glyphicon-heart"></span> Home</a></li>
             <li role="presentation"><a href="findpets.html"><span className="glyphicon glyphicon-search"></span> Find</a></li>
@@ -53,6 +51,9 @@ export default class Navbar extends React.Component {
             <li role="presentation"><a href="shelters.html"><span className="glyphicon glyphicon-home"></span> Shelters</a></li>
             <li role="presentation"><a href="petofthemonth.html"><span className="glyphicon glyphicon-star"></span> Pet of the Month</a></li>
           </ul>
+          </nav>
+
+
       </div>
     )
   }
