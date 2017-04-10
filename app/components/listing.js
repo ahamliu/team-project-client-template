@@ -23,7 +23,7 @@ export default class Listing extends React.Component{
     console.log("test")
     getListingById(1, (data) => {
       this.setState(data)
-      console.log(this.state)
+      console.log(this.state.author)
     })
   }
   onCommentPost(e, comment){
@@ -51,6 +51,13 @@ export default class Listing extends React.Component{
     else{
       comment = (<div></div>)
     }
+    var user
+    if(this.state.title){user =(
+      <Listinguser user={this.state.author}/>
+    )}
+    else{
+      user = (<div></div>)
+    }
       return (
         <div>
           <Navbar/>
@@ -59,8 +66,7 @@ export default class Listing extends React.Component{
           </div>
 
           <div className="col-md-2">
-
-            <Listinguser/>
+            {user}
             {comment}
 
           </div>

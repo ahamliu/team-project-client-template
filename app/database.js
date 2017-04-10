@@ -39,7 +39,7 @@ var initialData = {
   },
   user: {
     "1": {
-      "author": "Amy Ham Liu",
+      "name": "Amy Ham Liu",
       "location": "Amherst, MA. USA",
       "ratings": 1,
       "imgURL": "img/sample-user.jpg",

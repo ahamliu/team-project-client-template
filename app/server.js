@@ -40,3 +40,11 @@ function syncListing(listing){
   })
   listing.author = readDocument("user", listing.author)
 }
+export function postListing(newListing, userid, cb){
+  newListing.author = userid
+  newListing.comments = []
+  newListing.animals = []
+  newListing = addDocument("listing", newListing)
+  syncListing(newListing)
+  emulateServerReturn(newListing, cb)
+}
