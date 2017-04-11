@@ -90,7 +90,6 @@ export function getUserById(userid, cb) {
   syncUser(user)
   emulateServerReturn(user,cb)
 }
-<<<<<<< HEAD
 
 function getWishListItemSync(wishListItemId) {
   var wishListItem = readDocument('wishListItems', wishListItemId);
@@ -104,8 +103,6 @@ export function getWishListByUserId(userID, cb) {
   emulateServerReturn(wishListData, cb);
 }
 
-=======
->>>>>>> 27d8bd978270858a2197edf80a5aef50813c2631
 function getFeedItemSync(feedItemId) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Resolve 'like' counter.
