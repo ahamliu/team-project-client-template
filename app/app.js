@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {IndexRoute, Router, Route, browserHistory} from 'react-router';
 import Navbar from './components/navbar.js';
-import Homepage from './components/homepage.js';
+import HomePage from './components/homepage.js';
 import ListPage from './components/listpage.js';
 
 class App extends React.Component {

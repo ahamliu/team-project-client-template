@@ -1,9 +1,9 @@
 import React from 'react';
-import LeftColumn from './leftcolumn.js';
-import RightColumn from './rightcolumn.js';
-import NewsFeed from './newsfeed.js'
+import LeftColumn from '../leftcolumn.js';
+import RightColumn from '../rightcolumn.js';
+import NewsFeed from '../newsfeed.js'
 
-export default class Homepage extends React.Component {
+export default class HomePage extends React.Component {
   render() {
     return(
       <div className="row">

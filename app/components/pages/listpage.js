@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './list.js'
+import List from '../list.js';
 
 
 export default class ListPage extends React.Component {
