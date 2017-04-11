@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Navbar extends React.Component {
   render() {
@@ -45,11 +46,10 @@ export default class Navbar extends React.Component {
             </div>
           </div>
           <ul className="nav nav-pills nav-justified">
-            <li role="presentation"><a href="homepage.html"><span className="glyphicon glyphicon-heart"></span> Home</a></li>
-            <li role="presentation"><a href="findpets.html"><span className="glyphicon glyphicon-search"></span> Find</a></li>
-            <li role="presentation"><a href="list.html"><span className="glyphicon glyphicon-list-alt   "></span> List</a></li>
-            <li role="presentation"><a href="shelters.html"><span className="glyphicon glyphicon-home"></span> Shelters</a></li>
-            <li role="presentation"><a href="petofthemonth.html"><span className="glyphicon glyphicon-star"></span> Pet of the Month</a></li>
+            <li role="presentation"><Link to={"/homepage/"}><span className="glyphicon glyphicon-heart"></span></Link></li>
+            <li role="presentation"><Link to={"/findpetspage/"}><span className="glyphicon glyphicon-search"></span> Find</Link></li>
+            <li role="presentation"><Link to={"/listpage/"}><span className="glyphicon glyphicon-list-alt   "></span> List</Link></li>
+            <li role="presentation"><Link to={"/petofthemonthpage/"}><span className="glyphicon glyphicon-star"></span> Pet of the Month</Link></li>
           </ul>
           </nav>
 
