@@ -50,14 +50,14 @@ var initialData = {
   },
   user: {
     "1": {
-      "author": "Amy Ham Liu",
+      "name": "Amy Ham Liu",
       "location": "Amherst, MA. USA",
       "ratings": 1,
       "imgURL": "img/sample-user.jpg",
       "_id": 1
     }
   },
-  "users": {
+  users: {
     // This user has id "1".
     "1": {
       "_id": 1,
@@ -77,13 +77,13 @@ var initialData = {
     // This is "you"!
     "4": {
       "_id": 4,
-      "fullName": "John Vilk",
+      "fullName": "Cardie",
+      "time": "5 years ago",
+      "bio": "I hate javascript",
       // ID of your feed.
       "feed": 4
     }
   },
-  // The 'feedItems' collection. Contains all of the feed items on our Facebook
-  // system.
   "feedItems": {
     "1": {
       "_id": 1,
@@ -117,8 +117,10 @@ var initialData = {
       "_id": 1,
       "contents": []
     }
-  }
-};
+  },
+  "querylist": []
+}
+
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {
@@ -179,17 +181,17 @@ export function resetDatabase() {
 /**
  * Reset database button.
  */
-class ResetDatabase extends React.Component {
-  render() {
-    return (
-      <button className="btn btn-default" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
-      }}>Reset Mock DB</button>
-    );
-  }
-}
+ class ResetDatabase extends React.Component {
+   render() {
+     return (
+       <button className="btn btn-default" type="button" onClick={() => {
+         resetDatabase();
+         window.alert("Database reset! Refreshing the page now...");
+         document.location.reload(false);
+       }}>Reset Mock DB</button>
+     );
+   }
+ }
 
 ReactDOM.render(
   <ResetDatabase />,

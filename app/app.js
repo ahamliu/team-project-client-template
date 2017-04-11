@@ -15,7 +15,8 @@ import PetOfTheMonth from './components/petofthemonth.js';
 import LeftColumn from './components/leftcolumn.js';
 import NewsFeed from './components/newsfeed.js';
 import ResultList from './components/resultlist.js';
-// import ResultList from './components/resultlist.js';
+import FindpetFields from './components/findpetfields.js';
+import Navbar from './components/navbar.js';
 
 // For each view conditionally determine which view to display
 // depending on if the ID is present in the HTML.
@@ -40,6 +41,10 @@ else if (document.getElementById('homepage') !== null) {
     <RightColumn />,
     document.getElementById('rightcolumn')
   );
+  ReactDOM.render(
+    <Navbar />,
+    document.getElementById('navigation')
+  );
 
 }
 
@@ -53,7 +58,7 @@ else if (document.getElementById('list') !== null) {
 
 else if (document.getElementById('profile') !== null) {
   ReactDOM.render(
-    <Profile image="img/userpic.jpg" name="Cardie" time = "5 years ago">A Umass student.</Profile>,
+    <Profile image="img/userpic.jpg" user={4}></Profile>,
     document.getElementById('profile')
   );
   ReactDOM.render(
@@ -86,8 +91,15 @@ else if (document.getElementById('monthlypet') !== null){
     document.getElementById('petofthemonth')
   );
 }
-
-else if (document.getElementById('results') !== null){
+else if (document.getElementById('findpets') !== null) {
+  ReactDOM.render(
+    <Navbar />,
+    document.getElementById('navigation')
+  );
+  ReactDOM.render(
+    <FindpetFields />,
+    document.getElementById('fields')
+  );
   ReactDOM.render(
     <ResultList />,
     document.getElementById('results')
