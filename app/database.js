@@ -70,7 +70,23 @@ var initialData = {
       "time": "5 years ago",
       "bio": "I hate javascript",
       // ID of your feed.
-      "feed": 4
+      "feed": 4,
+      "wishList": 1
+    }
+  },
+
+  "wishLists":{
+    "1": {
+      "_id": 4,
+      "contents": [1]
+    }
+  },
+  "wishListItems" :{
+    "1":{
+      "_id": 1,
+      "time": "Yesterday at 3:48pm",
+      "location": "Amherst, MA",
+      "content": "Want to adopt a poodle, hopefully near Amherst."
     }
   },
   "feedItems": {

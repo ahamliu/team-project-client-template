@@ -43,12 +43,26 @@ function syncListing(listing){
 
 function syncUser(user){
     var feedid = user.feed
+    var wlid = user.wishList
     user.feed = readDocument("feeds", feedid)
+    user.wishList = readDocument("wishLists",wlid)
 }
 export function getUserById(userid, cb) {
   var user = readDocument("users", userid)
   syncUser(user)
   emulateServerReturn(user,cb)
+}
+
+function getWishListItemSync(wishListItemId) {
+  var wishListItem = readDocument('wishListItems', wishListItemId);
+  return wishListItem;
+}
+
+export function getWishListByUserId(userID, cb) {
+  var userData = readDocument('users', userID);
+  var wishListData = readDocument('wishLists',userData.wishList);
+  wishListData.contents = wishListData.contents.map(getWishListItemSync);
+  emulateServerReturn(wishListData, cb);
 }
 
 function getFeedItemSync(feedItemId) {
