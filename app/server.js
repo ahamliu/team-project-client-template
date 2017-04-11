@@ -40,10 +40,26 @@ function syncListing(listing){
   })
   listing.author = readDocument("user", listing.author)
 }
-export function postListing(newListing, userid, cb){
-  newListing.author = userid
-  newListing.comments = []
-  newListing.animals = []
+export function postListing(formContent, userid, cb){
+  var newAnimal = {
+    "name": formContent.name,
+    "age": formContent.age,
+    "type": formContent.type,
+    "breed": formContent.breed,
+    "gender": formContent.gender,
+    "characteristics": formContent.characteristics.split(", "),
+    "imgURL": formContent.imgURL
+  }
+  newAnimal = addDocument("animal", newAnimal)
+  var newListing = {
+    "location": formContent.location,
+    "description": formContent.description,
+    "date": Date.now(),
+    "animals": [newAnimal._id],
+    "title": formContent.title,
+    "author": userid,
+    "comments": []
+ }
   newListing = addDocument("listing", newListing)
   syncListing(newListing)
   emulateServerReturn(newListing, cb)

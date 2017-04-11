@@ -13,7 +13,9 @@ export default class Listform extends React.Component{
       "location": "",
       "description": "",
       "characteristics": "",
-      "imgURL": ""
+      "imgURL": "",
+      "title": "",
+      "success": false
 
     }
   }
@@ -25,9 +27,19 @@ export default class Listform extends React.Component{
   handleClick(e){
     e.preventDefault()
     console.log(this.state)
-    postListing(this.state, 1, (data) => {console.log(data)})
+    postListing(this.state, 1, (data) => {
+      console.log(data)
+      this.setState({
+        success: true
+      })
+    })
   }
   render(){
+    var responseMSG
+    if(this.state.success) {responseMSG = (<h2>Success!</h2>)}
+    else{
+      {responseMSG = <div></div>}
+    }
     return(
       <div className = "container">
         <div className = "row">
@@ -42,7 +54,12 @@ export default class Listform extends React.Component{
                 <div className="panel-body .panel-body">
 
                   <form>
+                    {responseMSG}
                     <div className="form-inline .forminline">
+                      <div className="form-group">
+                        <label for="formGroupExampleInput">Title</label>
+                        <input type="text" className="form-control" name="title" placeholder="(eg. greatest C A T)" onChange={(e) => this.handleChange(e)}/>
+                      </div>
                       <div className="form-group .form-group">
                         <label for="formGroupExampleInput">Name</label>
                         <input type="text" className="form-control" name="name" placeholder="(eg. potato)" onChange={(e) => this.handleChange(e)}/>
