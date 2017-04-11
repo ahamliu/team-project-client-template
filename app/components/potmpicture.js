@@ -18,22 +18,22 @@ export default class PoTMPicture extends React.Component{
 
         <div className="col-md-5 picture-info">
           <div className="description-text">
-            Name: Randy
+            Name: {this.props.name}
           </div>
           <div className="description-text">
-            Age: Young
+            Age: {this.props.age}
           </div>
           <div className="description-text">
-            Type: Dog
+            Type: {this.props.type}
           </div>
           <div className="description-text">
-            Breed: Beagle
+            Breed: {this.props.breed}
           </div>
           <div className="description-text">
-            Location: Cleveland, Ohio
+            Location: {this.props.location}
           </div>
           <div className="description-text">
-            Characteristics: Smart, Playful
+            Characteristics: {this.props.characteristics[0]}, {this.props.characteristics[1]}
           </div>
         </div>
 

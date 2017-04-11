@@ -9,7 +9,9 @@ export default class NewsFeed extends React.Component {
         <div className="col-md-12">
           <div id="news">
             <h1 className="home-header">News</h1>
+            <ul>
             <NewsItem />
+            </ul>
               </div>
             </div>
           </div>

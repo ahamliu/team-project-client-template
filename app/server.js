@@ -31,6 +31,19 @@ export function postComment(author, text, listingid, cb){
   emulateServerReturn(listing, cb)
 }
 
+export function getAnimalById(animalid, cb) {
+  var petofthemonth = readDocument("animal", animalid)
+  console.log(petofthemonth)
+  //syncPetOfTheMonth(petofthemonth)
+  emulateServerReturn(petofthemonth,cb)
+}
+
+/*function syncPetOfTheMonth(petofthemonth){
+  petofthemonth.animals = petofthemonth.animals.map((animalid) => {
+    return readDocument("animal", animalid)
+  })
+}*/
+
 function syncListing(listing){
   listing.animals = listing.animals.map((animalid) => {
     return readDocument("animal", animalid)
@@ -40,6 +53,31 @@ function syncListing(listing){
   })
   listing.author = readDocument("user", listing.author)
 }
+export function postListing(formContent, userid, cb){
+  var newAnimal = {
+    "name": formContent.name,
+    "age": formContent.age,
+    "type": formContent.type,
+    "breed": formContent.breed,
+    "gender": formContent.gender,
+    "characteristics": formContent.characteristics.split(", "),
+    "imgURL": formContent.imgURL
+  }
+  newAnimal = addDocument("animal", newAnimal)
+  var newListing = {
+    "location": formContent.location,
+    "description": formContent.description,
+    "date": Date.now(),
+    "animals": [newAnimal._id],
+    "title": formContent.title,
+    "author": userid,
+    "comments": []
+ }
+  newListing = addDocument("listing", newListing)
+  syncListing(newListing)
+  emulateServerReturn(newListing, cb)
+}
+
 
 function syncUser(user){
     var feedid = user.feed
@@ -52,6 +90,7 @@ export function getUserById(userid, cb) {
   syncUser(user)
   emulateServerReturn(user,cb)
 }
+<<<<<<< HEAD
 
 function getWishListItemSync(wishListItemId) {
   var wishListItem = readDocument('wishListItems', wishListItemId);
@@ -65,6 +104,8 @@ export function getWishListByUserId(userID, cb) {
   emulateServerReturn(wishListData, cb);
 }
 
+=======
+>>>>>>> 27d8bd978270858a2197edf80a5aef50813c2631
 function getFeedItemSync(feedItemId) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Resolve 'like' counter.
@@ -133,4 +174,20 @@ export function unlikeFeedItem(feedItemId, userId, cb) {
     writeDocument('feedItems', feedItem);
   }
   emulateServerReturn(feedItem.likeCounter.map((userId) => readDocument('users', userId)), cb);
+
+}
+
+
+export function findPets(location, type, subtype, age, gender, characteristics, queryListID, cb) {
+  var queryList = readDocument('queryList', queryListID);
+  queryList.push({
+    "searchDate": new Date().getTime(),
+    "location": location,
+    "type": type,
+    "subtype": subtype,
+    "age": age,
+    "gender": gender,
+    "characteristics": characteristics
+  });
+  //emulateServerReturn(getFeedItemSync(feedItemId), cb);
 }
