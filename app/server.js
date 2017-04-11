@@ -31,6 +31,19 @@ export function postComment(author, text, listingid, cb){
   emulateServerReturn(listing, cb)
 }
 
+export function getAnimalById(animalid, cb) {
+  var petofthemonth = readDocument("animal", animalid)
+  console.log(petofthemonth)
+  //syncPetOfTheMonth(petofthemonth)
+  emulateServerReturn(petofthemonth,cb)
+}
+
+/*function syncPetOfTheMonth(petofthemonth){
+  petofthemonth.animals = petofthemonth.animals.map((animalid) => {
+    return readDocument("animal", animalid)
+  })
+}*/
+
 function syncListing(listing){
   listing.animals = listing.animals.map((animalid) => {
     return readDocument("animal", animalid)

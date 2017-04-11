@@ -28,6 +28,17 @@ var initialData = {
       "characteristics": ["Fluffyyyyy", "CUTE"],
       "imgURL": "img/sample-pet.jpg",
       "_id": 1
+    },
+    "2": {
+      "name": "Randy",
+      "age": "Young",
+      "type": "Dog",
+      "breed": "Beagle",
+      "gender": "Male",
+      "location": "Cleveland, Ohio",
+      "characteristics": ["smart", "playful"],
+      "imgURL": "img/sample-pet.jpg",
+      "_id": 2
     }
   },
   comment: {
@@ -184,4 +195,3 @@ ReactDOM.render(
   <ResetDatabase />,
   document.getElementById('db-reset')
 );
-console.log("test")
