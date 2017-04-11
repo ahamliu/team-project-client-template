@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory} from 'react-router';
+import {IndexRoute, Router, Route, browserHistory} from 'react-router';
 import Navbar from './components/navbar.js';
+import Homepage from './components/homepage.js';
+import ListPage from './components/listpage.js';
 
 class App extends React.Component {
   render() {
     return (
-      <Navbar />
+      <div>
+        <Navbar />,
+        <div>{this.props.children}</div>
+      </div>
     )
   }
  }
@@ -14,7 +19,7 @@ class App extends React.Component {
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-
+      <IndexRoute component={ListPage}/>
     </Route>
   </Router>
 ),document.getElementById('root'));
