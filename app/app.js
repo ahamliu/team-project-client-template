@@ -41,6 +41,10 @@ else if (document.getElementById('homepage') !== null) {
     <RightColumn />,
     document.getElementById('rightcolumn')
   );
+  ReactDOM.render(
+    <Navbar />,
+    document.getElementById('navigation')
+  );
 
 }
 
