@@ -19,19 +19,19 @@ body{
 
 /*------NAVBAR CONTAINER--------*/
 
-.navbar-inverse{
+/*.navbar-inverse{
   position: absolute;
   background-color: #009587;
-}
+}*/
 
-.navbar-buttons{
+/*.navbar-buttons{
   background-color: #009587;
 }
 
 .navbar-header{
   position: absolute;
   left: 45%
-}
+}*/
 
 /*------LEFT COLUMN------*/
 
@@ -102,7 +102,7 @@ body{
 /*------MIDDLE COLUMN------*/
 
 
-.nav-pills > li > a {
+/*.nav-pills > li > a {
   color: #009587;
   font-family: 'Oswald', sans-serif;
   font-size: 1.5em;
@@ -119,7 +119,7 @@ body{
 .horizontal {
     display: inline;
 
-}
+}*/
 
 #news {
     border: 1px solid #009587;

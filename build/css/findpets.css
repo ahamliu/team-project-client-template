@@ -3,7 +3,7 @@ body {
    background-color: #fafafa;
  }
 
-.navbar-inverse{
+/*.navbar-inverse{
   position: absolute;
   background-color: #009587;
 }
@@ -31,7 +31,17 @@ body {
  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
      color:black;
      background-color: transparent;
+ }*/
+
+ /*
+ a {
+   color: #009587;
  }
+
+ a:hover {
+   color: #5fcf80;
+   text-decoration: none;
+ }*/
 
 .results-formatting {
   resize: none;
@@ -60,13 +70,4 @@ body {
 
 .dropdown-format {
   display: inline-block;
-}
-
-a {
-  color: #009587;
-}
-
-a:hover {
-  color: #5fcf80;
-  text-decoration: none;
 }
