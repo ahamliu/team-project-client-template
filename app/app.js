@@ -13,8 +13,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />,
-        <div>{this.props.children}</div>
+        <Navbar />
+        <div className="under-navbar">{this.props.children}</div>
       </div>
     )
   }

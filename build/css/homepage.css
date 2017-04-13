@@ -9,7 +9,7 @@
 }
 
 body{
-  padding-top: 55px;
+  /*padding-top: 55px;*/
   background-color: #fafafa;
 }
 
@@ -17,6 +17,9 @@ body{
   padding-left: 15px;
 }
 
+.under-navbar {
+  padding-top: 55px;
+}
 /*------NAVBAR CONTAINER--------*/
 
 /*.navbar-inverse{
