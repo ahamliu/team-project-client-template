@@ -47,6 +47,19 @@ export function postComment(author, text, listingid, cb){
   emulateServerReturn(listing, cb)
 }
 
+export function getAnimalById(animalid, cb) {
+  var petofthemonth = readDocument("animal", animalid)
+  console.log(petofthemonth)
+  //syncPetOfTheMonth(petofthemonth)
+  emulateServerReturn(petofthemonth,cb)
+}
+
+/*function syncPetOfTheMonth(petofthemonth){
+  petofthemonth.animals = petofthemonth.animals.map((animalid) => {
+    return readDocument("animal", animalid)
+  })
+}*/
+
 function syncListing(listing){
   listing.animals = listing.animals.map((animalid) => {
     return readDocument("animal", animalid)
@@ -84,13 +97,28 @@ export function postListing(formContent, userid, cb){
 
 function syncUser(user){
     var feedid = user.feed
+    var wlid = user.wishList
     user.feed = readDocument("feeds", feedid)
+    user.wishList = readDocument("wishLists",wlid)
 }
 export function getUserById(userid, cb) {
   var user = readDocument("users", userid)
   syncUser(user)
   emulateServerReturn(user,cb)
 }
+
+function getWishListItemSync(wishListItemId) {
+  var wishListItem = readDocument('wishListItems', wishListItemId);
+  return wishListItem;
+}
+
+export function getWishListByUserId(userID, cb) {
+  var userData = readDocument('users', userID);
+  var wishListData = readDocument('wishLists',userData.wishList);
+  wishListData.contents = wishListData.contents.map(getWishListItemSync);
+  emulateServerReturn(wishListData, cb);
+}
+
 function getFeedItemSync(feedItemId) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Resolve 'like' counter.

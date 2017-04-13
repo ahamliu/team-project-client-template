@@ -66,7 +66,7 @@ else if (document.getElementById('profile') !== null) {
     document.getElementById('rating')
   );
   ReactDOM.render(
-    <UserList />,
+    <UserList user={4}/>,
     document.getElementById('userList')
   );
 }
