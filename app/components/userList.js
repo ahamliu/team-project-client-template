@@ -2,10 +2,23 @@ import React from 'react';
 import WishList from './wishList.js'
 import PostHistoryS from './postHistoryS.js'
 import PostHistoryC from './postHistoryC.js'
+import {getWishListByUserId} from '../server'
 
 
 
 export default class UserList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      contents: []
+    };
+  }
+  componentDidMount() {
+    getWishListByUserId(this.props.user, (wishListData) => {
+    this.setState(wishListData);
+  });
+  }
+
   render() {
     return (
       <div className="row">
@@ -14,8 +27,12 @@ export default class UserList extends React.Component {
               <span className="glyphicon glyphicon-heart" aria-hidden="true"></span> Wish List
                 <div className= "col-md-12">
                   <div className= "row panel_padding">
-                    <WishList date="Yesterday at 3:48pm" location="Amherst, MA">Want to adopt a poodle, hopefully near Amherst.</WishList>
-                  </div>
+                    {this.state.contents.map((wishListItem) => {
+                      return (
+                        <WishList key={wishListItem._id} data={wishListItem}></WishList>
+                      );
+                    })}    
+                    </div>
                 </div>
             </div>
             <div className= "row">

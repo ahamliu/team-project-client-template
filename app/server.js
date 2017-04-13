@@ -1,4 +1,4 @@
-import {readDocument, writeDocument, addDocument} from './database.js';
+import {readDocument, readDocuments, writeDocument, addDocument} from './database.js';
 
 /**
  * Emulates how a REST call is *asynchronous* -- it calls your function back
@@ -17,6 +17,22 @@ export function getListingById(listingid, cb) {
   emulateServerReturn(listing,cb)
 }
 
+export function getStats(stat) {
+  var items = readDocuments(stat)
+  var ret = Object.keys(items).length
+  //emulateServerReturn(items,cb)
+  console.log(ret)
+  return ret
+}
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
 export function postComment(author, text, listingid, cb){
   var listing = readDocument("listing", listingid)
   console.log(listingid+listing._id)
@@ -31,6 +47,19 @@ export function postComment(author, text, listingid, cb){
   emulateServerReturn(listing, cb)
 }
 
+export function getAnimalById(animalid, cb) {
+  var petofthemonth = readDocument("animal", animalid)
+  console.log(petofthemonth)
+  //syncPetOfTheMonth(petofthemonth)
+  emulateServerReturn(petofthemonth,cb)
+}
+
+/*function syncPetOfTheMonth(petofthemonth){
+  petofthemonth.animals = petofthemonth.animals.map((animalid) => {
+    return readDocument("animal", animalid)
+  })
+}*/
+
 function syncListing(listing){
   listing.animals = listing.animals.map((animalid) => {
     return readDocument("animal", animalid)
@@ -40,6 +69,56 @@ function syncListing(listing){
   })
   listing.author = readDocument("user", listing.author)
 }
+export function postListing(formContent, userid, cb){
+  var newAnimal = {
+    "name": formContent.name,
+    "age": formContent.age,
+    "type": formContent.type,
+    "breed": formContent.breed,
+    "gender": formContent.gender,
+    "characteristics": formContent.characteristics.split(", "),
+    "imgURL": formContent.imgURL
+  }
+  newAnimal = addDocument("animal", newAnimal)
+  var newListing = {
+    "location": formContent.location,
+    "description": formContent.description,
+    "date": Date.now(),
+    "animals": [newAnimal._id],
+    "title": formContent.title,
+    "author": userid,
+    "comments": []
+ }
+  newListing = addDocument("listing", newListing)
+  syncListing(newListing)
+  emulateServerReturn(newListing, cb)
+}
+
+
+function syncUser(user){
+    var feedid = user.feed
+    var wlid = user.wishList
+    user.feed = readDocument("feeds", feedid)
+    user.wishList = readDocument("wishLists",wlid)
+}
+export function getUserById(userid, cb) {
+  var user = readDocument("users", userid)
+  syncUser(user)
+  emulateServerReturn(user,cb)
+}
+
+function getWishListItemSync(wishListItemId) {
+  var wishListItem = readDocument('wishListItems', wishListItemId);
+  return wishListItem;
+}
+
+export function getWishListByUserId(userID, cb) {
+  var userData = readDocument('users', userID);
+  var wishListData = readDocument('wishLists',userData.wishList);
+  wishListData.contents = wishListData.contents.map(getWishListItemSync);
+  emulateServerReturn(wishListData, cb);
+}
+
 function getFeedItemSync(feedItemId) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Resolve 'like' counter.
@@ -55,6 +134,7 @@ export function getFeedData(user, cb) {
   feedData.contents = feedData.contents.map(getFeedItemSync);
   emulateServerReturn(feedData, cb);
 }
+
 
 
 export function postStatusUpdate(user, location, contents, cb) {
@@ -99,22 +179,28 @@ export function likeFeedItem(feedItemId, userId, cb) {
   emulateServerReturn(feedItem.likeCounter.map((userId) => readDocument('users', userId)), cb);
 }
 
-/**
- * Updates a feed item's likeCounter by removing the user from the likeCounter.
- * Provides an updated likeCounter in the response.
- */
 export function unlikeFeedItem(feedItemId, userId, cb) {
   var feedItem = readDocument('feedItems', feedItemId);
-  // Find the array index that contains the user's ID.
-  // (We didn't *resolve* the FeedItem object, so it is just an array of user IDs)
   var userIndex = feedItem.likeCounter.indexOf(userId);
-  // -1 means the user is *not* in the likeCounter, so we can simply avoid updating
-  // anything if that is the case: the user already doesn't like the item.
   if (userIndex !== -1) {
-    // 'splice' removes items from an array. This removes 1 element starting from userIndex.
     feedItem.likeCounter.splice(userIndex, 1);
     writeDocument('feedItems', feedItem);
   }
-  // Return a resolved version of the likeCounter
   emulateServerReturn(feedItem.likeCounter.map((userId) => readDocument('users', userId)), cb);
+
+}
+
+
+export function findPets(location, type, subtype, age, gender, characteristics, queryListID, cb) {
+  var queryList = readDocument('queryList', queryListID);
+  queryList.push({
+    "searchDate": new Date().getTime(),
+    "location": location,
+    "type": type,
+    "subtype": subtype,
+    "age": age,
+    "gender": gender,
+    "characteristics": characteristics
+  });
+  //emulateServerReturn(getFeedItemSync(feedItemId), cb);
 }

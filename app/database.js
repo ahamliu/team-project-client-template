@@ -28,6 +28,17 @@ var initialData = {
       "characteristics": ["Fluffyyyyy", "CUTE"],
       "imgURL": "img/sample-pet.jpg",
       "_id": 1
+    },
+    "2": {
+      "name": "Randy",
+      "age": "Young",
+      "type": "Dog",
+      "breed": "Beagle",
+      "gender": "Male",
+      "location": "Cleveland, Ohio",
+      "characteristics": ["smart", "playful"],
+      "imgURL": "img/sample-pet.jpg",
+      "_id": 2
     }
   },
   comment: {
@@ -39,14 +50,20 @@ var initialData = {
   },
   user: {
     "1": {
-      "author": "Amy Ham Liu",
+      "name": "Amy Ham Liu",
       "location": "Amherst, MA. USA",
       "ratings": 1,
       "imgURL": "img/sample-user.jpg",
       "_id": 1
     }
   },
-  "users": {
+
+
+
+
+
+
+  users: {
     // This user has id "1".
     "1": {
       "_id": 1,
@@ -66,13 +83,29 @@ var initialData = {
     // This is "you"!
     "4": {
       "_id": 4,
-      "fullName": "John Vilk",
+      "fullName": "Cardie",
+      "time": "5 years ago",
+      "bio": "I hate javascript",
       // ID of your feed.
-      "feed": 4
+      "feed": 4,
+      "wishList": 1
     }
   },
-  // The 'feedItems' collection. Contains all of the feed items on our Facebook
-  // system.
+
+  "wishLists":{
+    "1": {
+      "_id": 4,
+      "contents": [1]
+    }
+  },
+  "wishListItems" :{
+    "1":{
+      "_id": 1,
+      "time": "Yesterday at 3:48pm",
+      "location": "Amherst, MA",
+      "content": "Want to adopt a poodle, hopefully near Amherst."
+    }
+  },
   "feedItems": {
     "1": {
       "_id": 1,
@@ -106,8 +139,10 @@ var initialData = {
       "_id": 1,
       "contents": []
     }
-  }
-};
+  },
+  "querylist": []
+}
+
 
 var data = JSON.parse(localStorage.getItem(startupName));
 if (data === null) {
@@ -131,6 +166,10 @@ export function readDocument(collection, id) {
   // Clone the data. We do this to model a database, where you receive a
   // *copy* of an object and not the object itself.
   return JSONClone(data[collection][id]);
+}
+
+export function readDocuments(collection){
+  return JSONClone(data[collection]);
 }
 /**
  * Emulates writing a "document" to a NoSQL database.
@@ -168,20 +207,19 @@ export function resetDatabase() {
 /**
  * Reset database button.
  */
-class ResetDatabase extends React.Component {
-  render() {
-    return (
-      <button className="btn btn-default" type="button" onClick={() => {
-        resetDatabase();
-        window.alert("Database reset! Refreshing the page now...");
-        document.location.reload(false);
-      }}>Reset Mock DB</button>
-    );
-  }
-}
+ class ResetDatabase extends React.Component {
+   render() {
+     return (
+       <button className="btn btn-default" type="button" onClick={() => {
+         resetDatabase();
+         window.alert("Database reset! Refreshing the page now...");
+         document.location.reload(false);
+       }}>Reset Mock DB</button>
+     );
+   }
+ }
 
 ReactDOM.render(
   <ResetDatabase />,
   document.getElementById('db-reset')
 );
-console.log("test")

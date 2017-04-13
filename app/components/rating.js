@@ -15,21 +15,14 @@ export default class Rating extends React.Component {
       this.setState(feedData);
     });
   }
-
-    onPost(postContents) {
-      // Send to server.
-      // We could use geolocation to get a location, but let's fix it to Amherst
-      // for now.
-      postStatusUpdate(4, "Amherst, MA", postContents, () => {
-        // Database is now updated. Refresh the feed.
-        this.refresh();
-      });
-    }
-
-    componentDidMount() {
+  onPost(postContents) {
+    postStatusUpdate(4, "Amherst, MA", postContents, () => {
       this.refresh();
-    }
-
+    });
+  }
+  componentDidMount() {
+    this.refresh();
+  }
   render() {
     return (
         <div>
@@ -41,8 +34,6 @@ export default class Rating extends React.Component {
                     <RatingThread key={feedItem._id} data={feedItem} />
                   );
                 })}
-
-
               <RatingEntry onPost={(postContents) => this.onPost(postContents)}/>
             </div>
           </div>
