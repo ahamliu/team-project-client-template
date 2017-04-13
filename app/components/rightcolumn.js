@@ -1,9 +1,29 @@
 import React from 'react';
+import {getStats} from '../server.js'
 
 
 
 
 export default class RightColumn extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      "listing": "",
+      "users": "",
+      "animal": ""
+    }
+  }
+
+  componentDidMount(){
+    console.log("test")
+    console.log(getStats("animal"))
+    this.setState({"listing":getStats("listing")})
+    this.setState({"users":getStats("users")})
+    this.setState({"animal":getStats("animal")})
+    console.log(this.state)
+  }
+
   render() {
     return (
       <div>
@@ -16,16 +36,10 @@ export default class RightColumn extends React.Component {
                   Total # of adoptions: 0
                 </li>
                 <li>
-                  # of registered users: 0
+                  # of registered users: {this.state.users}
                 </li>
                 <li>
-                  # of adoptable pets: 0
-                </li>
-                <li>
-                  # of litters: 0
-                </li>
-                <li>
-                  Total # of pets: 0
+                  # of adoptable pets: {this.state.animal}
                 </li>
               </ul>
             </div>

@@ -1,4 +1,4 @@
-import {readDocument, writeDocument, addDocument} from './database.js';
+import {readDocument, readDocuments, writeDocument, addDocument} from './database.js';
 
 /**
  * Emulates how a REST call is *asynchronous* -- it calls your function back
@@ -16,6 +16,22 @@ export function getListingById(listingid, cb) {
   syncListing(listing)
   emulateServerReturn(listing,cb)
 }
+
+export function getStats(stat) {
+  var items = readDocuments(stat)
+  var ret = Object.keys(items).length
+  //emulateServerReturn(items,cb)
+  console.log(ret)
+  return ret
+}
+
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
 
 export function postComment(author, text, listingid, cb){
   var listing = readDocument("listing", listingid)

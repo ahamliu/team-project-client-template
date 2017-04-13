@@ -46,6 +46,12 @@ var initialData = {
       "_id": 1
     }
   },
+
+
+
+
+
+
   users: {
     // This user has id "1".
     "1": {
@@ -133,6 +139,10 @@ export function readDocument(collection, id) {
   // Clone the data. We do this to model a database, where you receive a
   // *copy* of an object and not the object itself.
   return JSONClone(data[collection][id]);
+}
+
+export function readDocuments(collection){
+  return JSONClone(data[collection]);
 }
 /**
  * Emulates writing a "document" to a NoSQL database.
