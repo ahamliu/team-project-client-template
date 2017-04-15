@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './navbar.js';
 import PoTMPicture from './potmpicture.js';
 import PoTMDescription from './potmdescription.js';
-import {getAnimalById} from '../server.js';
+// import {getAnimalById} from '../server.js';
 
 export default class PetOfTheMonth extends React.Component{
   constructor(props){
@@ -19,11 +19,11 @@ export default class PetOfTheMonth extends React.Component{
       "_id": 0
     }
   }
-   componentDidMount(){
-    getAnimalById(2, (data) => {
-      this.setState(data)
-    })
-  }
+  //  componentDidMount(){
+  //   getAnimalById(2, (data) => {
+  //     this.setState(data)
+  //   })
+  // }
   render(){
       return (
           <div>

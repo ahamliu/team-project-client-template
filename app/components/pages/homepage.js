@@ -10,11 +10,9 @@ export default class HomePage extends React.Component {
         <div className="col-md-3" id="leftcolumn">
           <LeftColumn />
         </div>
-
         <div className="col-md-6" id="newsfeed">
           <NewsFeed />
         </div>
-
         <div className="col-md-3" id="rightcolumn">
           <RightColumn />
         </div>

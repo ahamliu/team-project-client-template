@@ -1,5 +1,5 @@
 import React from 'react';
-import {postListing} from '../server.js'
+// import {postListing} from '../server.js'
 
 export default class Listform extends React.Component{
   constructor(props){
@@ -24,16 +24,16 @@ export default class Listform extends React.Component{
       [e.target.name]: e.target.value
     })
   }
-  handleClick(e){
-    e.preventDefault()
-    console.log(this.state)
-    postListing(this.state, 1, (data) => {
-      console.log(data)
-      this.setState({
-        success: true
-      })
-    })
-  }
+  // handleClick(e){
+  //   e.preventDefault()
+  //   console.log(this.state)
+  //   postListing(this.state, 1, (data) => {
+  //     console.log(data)
+  //     this.setState({
+  //       success: true
+  //     })
+  //   })
+  // }
   render(){
     var responseMSG
     if(this.state.success) {responseMSG = (<h2>Success!</h2>)}

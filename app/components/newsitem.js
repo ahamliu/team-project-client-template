@@ -1,5 +1,5 @@
 import React from 'react';
-import {getListingById} from '../server.js'
+// import {getListingById} from '../server.js'
 
 export default class NewsItem extends React.Component {
 
@@ -15,13 +15,13 @@ export default class NewsItem extends React.Component {
     }
   }
 
-  componentDidMount(){
-    console.log("test")
-    getListingById(1, (data) => {
-      this.setState(data)
-      console.log(this.state)
-    })
-  }
+  // componentDidMount(){
+  //   console.log("test")
+  //   getListingById(1, (data) => {
+  //     this.setState(data)
+  //     console.log(this.state)
+  //   })
+  // }
 
 
 
