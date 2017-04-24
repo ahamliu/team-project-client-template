@@ -19,7 +19,7 @@ export default class RightColumn extends React.Component {
     console.log("test")
     console.log(getStats("animal"))
     this.setState({"listing":getStats("listing")})
-    this.setState({"users":getStats("users")})
+    this.setState({"users":getStats("user")})
     this.setState({"animal":getStats("animal")})
     console.log(this.state)
   }

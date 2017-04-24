@@ -33,6 +33,12 @@ Object.size = function(obj) {
     return size;
 };
 
+export function getRandomListing(){
+  var i = getStats("listing")
+  console.log(parseInt(Math.random()*i))
+  return (parseInt(Math.random()*i)+1)
+}
+
 export function postComment(author, text, listingid, cb){
   var listing = readDocument("listing", listingid)
   console.log(listingid+listing._id)

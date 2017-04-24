@@ -16,6 +16,16 @@ var initialData = {
       "comments": [1],
       "_id": 1,
       "author": 1
+    },
+    "2": {
+      "location": "UMass Amherst, Meadow st",
+      "date": Date.now(),
+      "animals": [2],
+      "title": "my boy Randy",
+      "description": "beagle bagle",
+      "comments": [1],
+      "_id": 2,
+      "author": 2
     }
   },
   animal: {
@@ -55,6 +65,13 @@ var initialData = {
       "ratings": 1,
       "imgURL": "img/sample-user.jpg",
       "_id": 1
+    },
+    "2": {
+      "name": "Gabe Hollander",
+      "location": "Right behind you",
+      "ratings": 1,
+      "imgURL": "fakeimg.jpeg",
+      "_id": 2
     }
   },
 
