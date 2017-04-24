@@ -10,12 +10,6 @@ function emulateServerReturn(data, cb) {
   }, 4);
 }
 
-export function getListingById(listingid, cb) {
-  var listing = readDocument("listing", listingid)
-  console.log(listing)
-  syncListing(listing)
-  emulateServerReturn(listing,cb)
-}
 
 export function getStats(stat) {
   var items = readDocuments(stat)
@@ -33,19 +27,6 @@ Object.size = function(obj) {
     return size;
 };
 
-export function postComment(author, text, listingid, cb){
-  var listing = readDocument("listing", listingid)
-  console.log(listingid+listing._id)
-  var comment = {
-    author: author,
-    text: text
-  }
-  comment = addDocument("comment", comment)
-  listing.comments.push(comment._id)
-  writeDocument("listing", listing)
-  syncListing(listing)
-  emulateServerReturn(listing, cb)
-}
 
 export function getAnimalById(animalid, cb) {
   var petofthemonth = readDocument("animal", animalid)
@@ -59,41 +40,6 @@ export function getAnimalById(animalid, cb) {
     return readDocument("animal", animalid)
   })
 }*/
-
-function syncListing(listing){
-  listing.animals = listing.animals.map((animalid) => {
-    return readDocument("animal", animalid)
-  })
-  listing.comments = listing.comments.map((commentid) => {
-    return readDocument("comment", commentid)
-  })
-  listing.author = readDocument("user", listing.author)
-}
-export function postListing(formContent, userid, cb){
-  var newAnimal = {
-    "name": formContent.name,
-    "age": formContent.age,
-    "type": formContent.type,
-    "breed": formContent.breed,
-    "gender": formContent.gender,
-    "characteristics": formContent.characteristics.split(", "),
-    "imgURL": formContent.imgURL
-  }
-  newAnimal = addDocument("animal", newAnimal)
-  var newListing = {
-    "location": formContent.location,
-    "description": formContent.description,
-    "date": Date.now(),
-    "animals": [newAnimal._id],
-    "title": formContent.title,
-    "author": userid,
-    "comments": []
- }
-  newListing = addDocument("listing", newListing)
-  syncListing(newListing)
-  emulateServerReturn(newListing, cb)
-}
-
 
 function syncUser(user){
     var feedid = user.feed
@@ -209,6 +155,34 @@ export function postStatusUpdate(user, location, contents, cb) {
     cb(JSON.parse(xhr.responseText));
   });
 }
+
+export function postListing(formContent, userId, cb) {
+  sendXHR('POST', '/listing', {
+    userId: userId,
+    formContent: formContent
+  }, (xhr) => {
+    // Return the new status update.
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+
+export function getListingById(listingId, cb) {
+  sendXHR('GET', '/listing/'+listingId, null, (xhr) => {
+    // Return the new status update.
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+
+export function postComment(author, text, listingId, cb) {
+  sendXHR('POST', '/comment', {
+    author: author,
+    text: text,
+    listingId: listingId
+  }, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+
 export function likeFeedItem(feedItemId, userId, cb) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Normally, we would check if the user already liked this comment.
