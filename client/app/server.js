@@ -33,19 +33,6 @@ export function getRandomListing(){
   return (parseInt(Math.random()*i)+1)
 }
 
-export function postComment(author, text, listingid, cb){
-  var listing = readDocument("listing", listingid)
-  console.log(listingid+listing._id)
-  var comment = {
-    author: author,
-    text: text
-  }
-  comment = addDocument("comment", comment)
-  listing.comments.push(comment._id)
-  writeDocument("listing", listing)
-  syncListing(listing)
-  emulateServerReturn(listing, cb)
-}
 
 export function getAnimalById(animalid, cb) {
   var petofthemonth = readDocument("animal", animalid)
