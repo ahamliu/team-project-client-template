@@ -40,7 +40,7 @@ export default class Navbar extends React.Component {
             </div>
           </div>
           <ul className="nav nav-pills nav-justified top-navbar-buttons">
-            <li role="presentation"><Link to={"/homepage/"}><span className="glyphicon glyphicon-heart"></span></Link></li>
+            <li role="presentation"><Link to={"/homepage/"}><span className="glyphicon glyphicon-heart"></span> Home</Link></li>
             <li role="presentation"><Link to={"/findpetspage/"}><span className="glyphicon glyphicon-search"></span> Find</Link></li>
             <li role="presentation"><Link to={"/listpage/"}><span className="glyphicon glyphicon-list-alt   "></span> List</Link></li>
             <li role="presentation"><Link to={"/petofthemonthpage/"}><span className="glyphicon glyphicon-star"></span> Pet of the Month</Link></li>
