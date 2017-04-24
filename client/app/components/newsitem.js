@@ -1,5 +1,5 @@
 import React from 'react';
-import {getListingById} from '../server.js'
+import {getListingById, getRandomListing} from '../server.js'
 
 export default class NewsItem extends React.Component {
 
@@ -15,13 +15,17 @@ export default class NewsItem extends React.Component {
     }
   }
 
+
+
   componentDidMount(){
     console.log("test")
-    getListingById(1, (data) => {
+    getListingById(getRandomListing(), (data) => {
       this.setState(data)
       console.log(this.state)
     })
   }
+
+
 
 
 
@@ -35,7 +39,7 @@ export default class NewsItem extends React.Component {
           <span className="glyphicon glyphicon-hand-right"></span>
         </div>
         <div className="media-body">
-          <a href="#">{this.state.author.author}</a>: <p>{text}</p>
+          <a href="#">{this.state.author.name}</a>: <p>{text}</p>
 
         </div>
       </li>
