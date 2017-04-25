@@ -17,6 +17,7 @@ import NewsFeed from './components/newsfeed.js';
 import ResultList from './components/resultlist.js';
 import FindpetFields from './components/findpetfields.js';
 import Navbar from './components/navbar.js';
+import FindpetBody from './components/findpetbody.js';
 
 // For each view conditionally determine which view to display
 // depending on if the ID is present in the HTML.
@@ -97,11 +98,7 @@ else if (document.getElementById('findpets') !== null) {
     document.getElementById('navigation')
   );
   ReactDOM.render(
-    <FindpetFields />,
-    document.getElementById('fields')
-  );
-  ReactDOM.render(
-    <ResultList />,
-    document.getElementById('results')
+    <FindpetBody />,
+    document.getElementById('body')
   );
 }

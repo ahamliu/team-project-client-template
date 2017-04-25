@@ -223,5 +223,9 @@ export function findPets(location, type, subtype, age, gender, characteristics, 
     "gender": gender,
     "characteristics": characteristics
   });
-  //emulateServerReturn(getFeedItemSync(feedItemId), cb);
+  writeDocument('queryList', queryList);
+
+  var results = readDocuments('animal');
+
+  emulateServerReturn(results, cb);
 }
