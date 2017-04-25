@@ -154,9 +154,9 @@ app.get('/listing/:listingId', function (req,res){
   res.send(listing);
 });
 
-app.get('/listing/:listingId', function (req,res){
+app.get('/animal/:animalId', function (req,res){
   var params = req.params;
-  var animals = getAnimalById(params.listingId);
+  var animals = getAnimalById(params.animalId);
   res.status(201);
   res.send(animals);
 });
