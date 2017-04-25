@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Navbar extends React.Component {
   render() {
@@ -16,12 +17,11 @@ export default class Navbar extends React.Component {
                 <span className="glyphicon glyphicon-search"></span>
               </button>
             </form>
-
             <div className="navbar-header">
-              <a className="navbar-brand .navbar-inverse .nav-brand" href="homepage.html">
-               <font color="5fcf80"><span className="glyphicon glyphicon-heart-empty"></span></font>
-               <font color="ffffff">LitterBox</font>
-              </a>
+              <Link to={"homepage"} className="navbar-brand .navbar-inverse .nav-brand">
+                <font color="5fcf80"><span className="glyphicon glyphicon-heart-empty"></span></font>
+                <font color="ffffff">LitterBox</font>
+              </Link>
             </div>
 
             <div className="btn-toolbar pull-right" role="toolbar">

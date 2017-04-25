@@ -1,0 +1,42 @@
+.navbar-inverse{
+  position: absolute;
+  background-color: #009587;
+}
+
+.top-navbar-buttons{
+  background-color: white;
+}
+
+.navbar-header{
+  position: absolute;
+  left: 45%
+}
+
+.nav-pills > li > a:focus, .nav-pills > li > a:hover {
+   color: #5fcf80;
+   background-color: transparent;
+ }
+
+.nav-pills > li > a {
+   color: #009587;
+   font-family: 'Oswald', sans-serif;
+   font-size: 1.5em;
+ }
+
+ .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+     color:black;
+     background-color: transparent;
+ }*/
+
+.under-navbar {
+  padding-top: 700px;
+}
+ /*
+ a {
+   color: #009587;
+ }
+
+ a:hover {
+   color: #5fcf80;
+   text-decoration: none;
+ }

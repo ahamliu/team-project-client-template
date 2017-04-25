@@ -3,6 +3,81 @@ body {
    background-color: #fafafa;
  }
 
+/*.navbar-inverse{
+  position: absolute;
+  background-color: #009587;
+}
+
+.navbar-buttons{
+  background-color: #009587;
+}
+
+.navbar-header{
+  position: absolute;
+  left: 45%
+}
+
+.nav-pills > li > a:focus, .nav-pills > li > a:hover {
+   color: #5fcf80;
+   background-color: transparent;
+ }
+
+.nav-pills > li > a {
+   color: #009587;
+   font-family: 'Oswald', sans-serif;
+   font-size: 1.5em;
+ }
+
+ .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+     color:black;
+     background-color: transparent;
+ }*/
+
+ /*
+ a {
+   color: #009587;
+ }
+
+ a:hover {
+   color: #5fcf80;
+   text-decoration: none;
+ }*/
+
+.results-formatting {
+  resize: none;
+  box-shadow: none !important;
+  border: none;
+  background-color: #fafafa;
+}
+
+.btn-primary-outline {
+  background-color: transparent;
+}
+
+.results-media-formatting{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.result-list-formatting{
+  list-style-type: none
+}
+
+.borderlist {
+    list-style-position:inside;
+    border: 1px solid black;
+}
+
+.dropdown-format {
+  display: inline-block;
+}
+
+/*
+body {
+   padding-top: 55px;
+   background-color: #fafafa;
+ }
+
 .navbar-inverse{
   position: absolute;
   background-color: #009587;
@@ -70,3 +145,4 @@ a:hover {
   color: #5fcf80;
   text-decoration: none;
 }
+*/

@@ -3,7 +3,7 @@ body {
     background-color: #fafafa;
  }
  /* NAVBAR */
- .navbar-inverse{
+ /*.navbar-inverse{
    position: absolute;
    background-color: #009587;
  }
@@ -15,7 +15,21 @@ body {
  .navbar-header{
    position: absolute;
    left: 45%
+ }*/
+
+ /*.nav-pills > li > a {
+   color: #009587;
+   font-family: 'Oswald', sans-serif;
+   font-size: 1.5em;
  }
+ .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+     color:black;
+     background-color: transparent;
+ }
+ .nav-pills > li > a:focus, .nav-pills > li > a:hover {
+    color: #5fcf80;
+    background-color: transparent;
+  }*/
 
  .list-description textarea {
   resize: none;
@@ -44,17 +58,3 @@ body {
   background-color: #337ab7;
   border-color: #337ab7;
 }
-
-.nav-pills > li > a {
-  color: #009587;
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.5em;
-}
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    color:black;
-    background-color: transparent;
-}
-.nav-pills > li > a:focus, .nav-pills > li > a:hover {
-   color: #5fcf80;
-   background-color: transparent;
- }
