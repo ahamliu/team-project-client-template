@@ -27,7 +27,6 @@ export default class PetOfTheMonth extends React.Component{
   render(){
       return (
           <div>
-          <Navbar/>
           <PoTMPicture name={this.state.name} type={this.state.type}
             breed={this.state.breed} age={this.state.age} location={this.state.location}
             characteristics={this.state.characteristics}>
