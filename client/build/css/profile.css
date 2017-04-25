@@ -2,7 +2,7 @@ body {
   padding-top:55px;
   background-color: #fafafa;
 }
-.navbar-inverse{
+/*.navbar-inverse{
   position: absolute;
   background-color: #009587;
 }
@@ -28,7 +28,7 @@ body {
  .nav-pills > li > a:focus, .nav-pills > li > a:hover {
     color: #5fcf80;
     background-color: transparent;
-  }
+  }*/
 .font{
   font-size: 28pt
 }
