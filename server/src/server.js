@@ -101,6 +101,12 @@ function getListingById(listingid) {
   return listing
 }
 
+function getAnimalById(animalid, cb) {
+  var petofthemonth = readDocument("animal", animalid)
+  //syncPetOfTheMonth(petofthemonth)
+  return petofthemonth
+}
+
 function postComment(author, text, listingid){
   var listing = readDocument("listing", listingid)
   var comment = {
@@ -147,6 +153,14 @@ app.get('/listing/:listingId', function (req,res){
   res.status(201);
   res.send(listing);
 });
+
+app.get('/listing/:listingId', function (req,res){
+  var params = req.params;
+  var animals = getAnimalById(params.listingId);
+  res.status(201);
+  res.send(animals);
+});
+
 
 // `POST /feeditem { userId: user, location: location, contents: contents  }`
 app.post('/comment',
