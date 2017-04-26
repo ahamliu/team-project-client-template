@@ -1,5 +1,5 @@
 import React from 'react';
-import findPets from '../server';
+import {getResults} from '../server';
 
 export default class FindpetFields extends React.Component{
   constructor(props) {
@@ -81,8 +81,7 @@ export default class FindpetFields extends React.Component{
 
     if(locationVal !== "" && typeVal !== "" && subtypeVal !== "" && genderVal !== "" && characteristicsVal !== ""){
       //console.log("TEST"+locationVal + typeVal + subtypeVal + ageVal + genderVal + characteristicsVal);
-      findPets(locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal, (data) => {
-        this.props.callBackFromParent(data);
+      getResults(locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal, (data) => {data
       });
     }
   }

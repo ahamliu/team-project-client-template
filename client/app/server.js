@@ -211,7 +211,7 @@ export function unlikeFeedItem(feedItemId, userId, cb) {
 
 }
 
-
+/*
 export function findPets(location, type, subtype, age, gender, characteristics, queryListID, cb) {
   var queryList = readDocument('queryList', queryListID);
   queryList.push({
@@ -228,4 +228,17 @@ export function findPets(location, type, subtype, age, gender, characteristics, 
   var results = readDocuments('animal');
 
   emulateServerReturn(results, cb);
+}
+*/
+export function getResults(location, type, subtype, age, gender, characteristics, cb) {
+  sendXHR('GET', '/results/' + 1, {
+    location: location,
+    type: type,
+    subtype: subtype,
+    age: age,
+    gender: gender,
+    characteristics: characteristics
+  }, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
 }

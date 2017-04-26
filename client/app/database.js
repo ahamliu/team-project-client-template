@@ -157,7 +157,47 @@ var initialData = {
       "contents": []
     }
   },
-  "querylist": []
+  result: {
+    "1": {
+      "_id": 1,
+      "contents": [1,2,3]
+    }
+  },
+  results: {
+    "1": {
+      "_id": 1,
+      "name": "Randy",
+      "location": "Cleveland, OH",
+      "type": "Dog",
+      "subtype": "Beagle",
+      "age": "Young",
+      "gender": "Male",
+      "characteristics": "Intelligent, Friendly",
+      "image": "img/dog-thumbnail.jpg"
+    },
+    "2": {
+      "_id": 2,
+      "name": "Ekans",
+      "type": "Snake",
+      "location": "Amherst, MA",
+      "subtype": "Milk Snake",
+      "age": "Adult",
+      "gender": "Uknown",
+      "characteristics": "Untrustworthy",
+      "image": "img/snake-thumbnail.jpg"
+    },
+    "3": {
+      "_id": 3,
+      "name": "Harambe",
+      "type": "Exotic",
+      "location": "Cincinnati, OH",
+      "subtype": "Western Lowland Gorilla",
+      "age": "Adult",
+      "gender": "Male",
+      "characteristics": "Heroic",
+      "image": "img/harambe-thumbnail.jpg"
+    }
+  }
 }
 
 

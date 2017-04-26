@@ -175,6 +175,17 @@ app.post('/comment',
   res.send(listing);
 });
 
+function getResults(resultId){
+  var result = readDocument("results", resultId);
+  return result;
+}
+
+// GET results for findpets
+app.get('/results/:resultId', function (req,res){
+  var result = getResults(req.resultId);
+  res.status(201);
+  res.send(result);
+});
 /**
  * Translate JSON Schema Validation failures into error 400s.
  */
