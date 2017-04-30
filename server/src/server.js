@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 /**
  * Adds a new status update to the database.
  */
+
 function postRatingUpdate(user, location, contents) {
   // If we were implementing this for real on an actual server, we would check
   // that the user ID is correct & matches the authenticated user. But since

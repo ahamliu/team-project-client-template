@@ -14,13 +14,13 @@ var ObjectID = require('mongodb').ObjectID;
 var initialData = {
   results: {
     "1": {
-      "_id": 1,
+      "_id": new ObjectID("000000000000000000000001"),
       "contents": [1,2,3]
     }
   },
   pets: {
     "1": {
-      "_id": 1,
+      "_id": new ObjectID("000000000000000000000001"),
       "name": "Randy",
       "location": "Cleveland, OH",
       "type": "Dog",
@@ -31,7 +31,7 @@ var initialData = {
       "image": "img/dog-thumbnail.jpg"
     },
     "2": {
-      "_id": 2,
+      "_id": new ObjectID("000000000000000000000002"),
       "name": "Ekans",
       "type": "Snake",
       "location": "Amherst, MA",
@@ -42,7 +42,7 @@ var initialData = {
       "image": "img/snake-thumbnail.jpg"
     },
     "3": {
-      "_id": 3,
+      "_id": new ObjectID("000000000000000000000003"),
       "name": "Harambe",
       "type": "Exotic",
       "location": "Cincinnati, OH",
@@ -61,8 +61,8 @@ var initialData = {
       "title": "Pet listing",
       "description": "famous cat on reddit",
       "comments": [1],
-      "_id": 1,
-      "author": 1
+      "_id": new ObjectID("000000000000000000000001"),
+      "author": new ObjectID("000000000000000000000001")
     }
   },
   animal: {
@@ -74,7 +74,7 @@ var initialData = {
       "gender": "Male",
       "characteristics": ["Fluffyyyyy", "CUTE"],
       "imgURL": "img/sample-pet.jpg",
-      "_id": 1
+      "_id": new ObjectID("000000000000000000000001")
     },
     "2": {
       "name": "Randy",
@@ -85,14 +85,14 @@ var initialData = {
       "location": "Cleveland, Ohio",
       "characteristics": ["smart", "playful"],
       "imgURL": "img/sample-pet.jpg",
-      "_id": 2
+      "_id": new ObjectID("000000000000000000000002")
     }
   },
   comment: {
     "1": {
       "author": "Kai",
       "text": "HELLO I LIKE YOUR CAT hehe xd",
-      "_id": 1
+      "_id": new ObjectID("000000000000000000000001")
     }
   },
   user: {
@@ -101,7 +101,7 @@ var initialData = {
       "location": "Amherst, MA. USA",
       "ratings": 1,
       "imgURL": "img/sample-user.jpg",
-      "_id": 1
+      "_id": new ObjectID("000000000000000000000001")
     }
   },
 
@@ -113,41 +113,41 @@ var initialData = {
   users: {
     // This user has id "1".
     "1": {
-      "_id": 1,
+      "_id": new ObjectID("000000000000000000000001"),
       "fullName": "Someone",
-      "feed": 1
+      "feed": new ObjectID("000000000000000000000001")
     },
     "2": {
-      "_id": 2,
+      "_id": new ObjectID("000000000000000000000002"),
       "fullName": "Someone Else",
-      "feed": 2
+      "feed": new ObjectID("000000000000000000000002")
     },
     "3": {
-      "_id": 3,
+      "_id": new ObjectID("000000000000000000000003"),
       "fullName": "Another Person",
-      "feed": 3
+      "feed": new ObjectID("000000000000000000000003")
     },
     // This is "you"!
     "4": {
-      "_id": 4,
+      "_id": new ObjectID("000000000000000000000004"),
       "fullName": "Cardie",
       "time": "5 years ago",
       "bio": "I hate javascript",
       // ID of your feed.
-      "feed": 4,
+      "feed": new ObjectID("000000000000000000000004"),
       "wishList": 1
     }
   },
 
   "wishLists":{
     "1": {
-      "_id": 4,
+      "_id": new ObjectID("000000000000000000000004"),
       "contents": [1]
     }
   },
   "wishListItems" :{
     "1":{
-      "_id": 1,
+      "_id": new ObjectID("000000000000000000000001"),
       "time": "Yesterday at 3:48pm",
       "location": "Amherst, MA",
       "content": "Want to adopt a poodle, hopefully near Amherst."
@@ -155,13 +155,13 @@ var initialData = {
   },
   "feedItems": {
     "1": {
-      "_id": 1,
+      "_id": new ObjectID("000000000000000000000001"),
       "likeCounter": [
         2, 3
       ],
       "type": "statusUpdate",
       "contents": {
-        "author": 1,
+        "author": new ObjectID("000000000000000000000001"),
         "postDate": 1453668480000,
         "location": "Austin, TX",
         "contents": "Cardie is the best!"
@@ -171,19 +171,19 @@ var initialData = {
   // "feeds" collection. Feeds for each FB user.
   "feeds": {
     "4": {
-      "_id": 4,
+      "_id": new ObjectID("000000000000000000000004"),
       "contents": [1]
     },
     "3": {
-      "_id": 3,
+      "_id": new ObjectID("000000000000000000000003"),
       "contents": []
     },
     "2": {
-      "_id": 2,
+      "_id": new ObjectID("000000000000000000000002"),
       "contents": []
     },
     "1": {
-      "_id": 1,
+      "_id": new ObjectID("000000000000000000000001"),
       "contents": []
     }
   }
@@ -203,7 +203,10 @@ try {
   // Read more about configuration comments at the following URL:
   // http://eslint.org/docs/user-guide/configuring#configuring-rules
   /* eslint "node/no-missing-require": "off" */
-  data = require('./database.json');
+
+  // currently only uses initial data
+  data = JSONClone(initialData);
+  // data = require('./database.json');
 } catch (e) {
   // ./database.json is missing. Use the seed data defined above
   data = JSONClone(initialData);
