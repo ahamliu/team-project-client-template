@@ -7,6 +7,9 @@ MongoClient.connect(url, function(err, db) {
     console.log("connected to db");
   }
 });
+
+var ObjectID = require('mongodb').ObjectID;
+
 // Your startup's initial mock objects go here
 var initialData = {
   results: {
