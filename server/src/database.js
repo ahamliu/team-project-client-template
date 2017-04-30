@@ -1,3 +1,12 @@
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://localhost:27017/litterbox';
+MongoClient.connect(url, function(err, db) {
+  if (err) {
+    throw new Error("could not connect to db: " + err);
+  } else {
+    console.log("connected to db");
+  }
+});
 // Your startup's initial mock objects go here
 var initialData = {
   results: {
