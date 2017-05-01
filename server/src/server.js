@@ -13,7 +13,9 @@ app.use(express.static('../client/build'));
 var ratingUpdateSchema = require('./schemas/ratingUpdate.json');
 var validate = require('express-jsonschema').validate;
 var writeDocument = database.writeDocument;
+var readDocument = database.writeDocument;
 var addDocument = database.addDocument;
+var getFeedData = 
 
 // Support receiving text in HTTP request bodies
 app.use(bodyParser.text());
@@ -30,7 +32,7 @@ function postRatingUpdate(user, location, contents) {
   // Get the current UNIX time.
   var time = new Date().getTime();
   // The new status update. The database will assign the ID for us.
-  var newStatusUpdate = {
+  var newRatingUpdate = {
     "likeCounter": [],
     "type": "statusUpdate",
     "contents": {
@@ -46,24 +48,31 @@ function postRatingUpdate(user, location, contents) {
 
   // Add the status update to the database.
   // Returns the status update w/ an ID assigned.
-  newStatusUpdate = addDocument('feedItems', newStatusUpdate);
+  newRatingUpdate = addDocument('feedItems', newRatingUpdate);
   // Add the status update reference to the front of the current user's feed.
   var userData = readDocument('users', user);
   var feedData = readDocument('feeds', userData.feed);
-  feedData.contents.unshift(newStatusUpdate._id);
+  feedData.contents.unshift(newRatingUpdate._id);
   // Update the feed object.
   writeDocument('feeds', feedData);
   // Return the newly-posted object.
-  return newStatusUpdate;
+  return newRatingUpdate;
 }
+/**
+ * Get the feed data for a particular user.
+ */
+app.get('/users/:userid/feed', function(req, res) {
+  // URL parameters are stored in req.params
+  var userid = req.params.userid;
+  // Send response.
+  res.send(getFeedData(userid));
+});
 
 // `POST /feeditem { userId: user, location: location, contents: contents  }`
-app.post('/feeditem',
-         validate({ body: ratingUpdateSchema }), function(req, res) {
+app.post('/feeditem', validate({ body: ratingUpdateSchema }), function(req, res) {
   // If this function runs, `req.body` passed JSON validation!
   var body = req.body;
-    var newUpdate = postStatusUpdate(body.userId, body.location,
-		                             body.contents);
+    var newUpdate = postRatingUpdate(body.userId, body.location, body.contents);
     // When POST creates a new resource, we should tell the client about it
     // in the 'Location' header and use status code 201.
     res.status(201);
