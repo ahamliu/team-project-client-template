@@ -328,14 +328,27 @@ var url = 'mongodb://localhost:27017/guava';
 
     });
 
-    function getResults(resultId){
-      var result = readDocument("results", resultId);
-      return result;
+    function getResultsById(resultId, cb) {
+      console.log(resultId);
+      db.collection("results").findOne({
+        _id: "1"
+      }, function(err, resultData){
+        if(err){
+          return cb(null, err);
+        }
+        else if(resultData == null){
+          return cb(null, null);
+        }
+        else{
+          console.log(resultData)
+          return cb(null, resultData)
+        }
+      })
     }
 
     // GET results for findpets
     app.get('/results/:resultId', function (req,res){
-      var result = getResults(req.resultId);
+      var result = getResultsById(req.resultId);
       res.status(201);
       res.send(result);
     });

@@ -81,7 +81,8 @@ export default class FindpetFields extends React.Component{
 
     if(locationVal !== "" && typeVal !== "" && subtypeVal !== "" && genderVal !== "" && characteristicsVal !== ""){
       //console.log("TEST"+locationVal + typeVal + subtypeVal + ageVal + genderVal + characteristicsVal);
-      getResults(locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal, (data) => {data
+      getResults(locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal, (data) => {
+        this.props.callBackFromFields(data);
       });
     }
   }

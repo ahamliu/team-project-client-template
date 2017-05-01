@@ -7,7 +7,7 @@ var initialData = {
   results: {
     "1": {
       "_id": new ObjectID("000000000000000000000001"),
-      "contents": [1,2,3]
+      "contents": [new ObjectID("000000000000000000000001"),new ObjectID("000000000000000000000002"),new ObjectID("000000000000000000000003")]
     }
   },
   pets: {

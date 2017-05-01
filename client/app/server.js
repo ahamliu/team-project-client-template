@@ -238,6 +238,7 @@ export function getResults(location, type, subtype, age, gender, characteristics
     gender: gender,
     characteristics: characteristics
   }, (xhr) => {
+    console.log(location, age);
     cb(JSON.parse(xhr.responseText));
   });
 }
