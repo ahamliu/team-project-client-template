@@ -142,6 +142,103 @@ var url = 'mongodb://localhost:27017/guava';
      })
    }
 
+   function postComment(author, text, listingid, cb){
+     console.log("COMMENT")
+     var id = new ObjectID(listingid)
+     var comment = {
+       author: author,
+       text: text
+     }
+     db.collection("comment").insertOne(comment, function(err, result){
+       if (err){
+         return cb(err);
+       }
+       else if(result == null){
+         return cb(null, null);
+       }
+       else{
+         console.log(result.insertedId)
+         db.collection("listing").updateOne({
+           _id: id
+         }, {
+           $push: {comments: result.insertedId}
+         }, function(err){
+          if (err){
+            return cb(err);
+          }
+          else{
+            console.log("UpdatedListing")
+            getListingById(id, function(err, listingData){
+              console.log(id)
+              if (err){
+                return cb(err);
+              }
+              else if(listingData == null){
+                return cb(null, null);
+              }
+              else{
+                return cb(null, listingData)
+              }
+            })
+          }
+         })
+       }
+     })
+   }
+
+   function postListing(formContent, userid, cb){
+     var newAnimal = {
+       "name": formContent.name,
+       "age": formContent.age,
+       "type": formContent.type,
+       "breed": formContent.breed,
+       "gender": formContent.gender,
+       "characteristics": formContent.characteristics.split(", "),
+       "imgURL": formContent.imgURL
+     }
+
+    db.collection("animal").insertOne(newAnimal, function(err, result){
+      if (err){
+        return cb(err);
+      }
+      else if(result == null){
+        return cb(null, null);
+      }
+      else{
+        var newListing = {
+          "location": formContent.location,
+          "description": formContent.description,
+          "date": Date.now(),
+          "animals": [result.insertedId],
+          "title": formContent.title,
+          "author": new ObjectID(userid),
+          "comments": []
+        }
+        db.collection("listing").insertOne(newListing, function(err, result){
+          if (err){
+            return cb(err);
+          }
+          else if(result == null){
+            return cb(null, null);
+          }
+          else{
+            getListingById(result.insertedId, function(err, listingData){
+              if (err){
+                return cb(err);
+              }
+              else if(result == null){
+                return cb(null, null);
+              }
+              else{
+                return cb(null, listingData);
+              }
+            })
+          }
+        })
+      }
+   })
+ }
+
    function syncListing(listing){
      listing.animals = listing.animals.map((animalid) => {
        return readDocument("animal", animalid)
@@ -175,12 +272,17 @@ var url = 'mongodb://localhost:27017/guava';
              validate({ body: listingSchema }), function(req, res) {
       // If this function runs, `req.body` passed JSON validation!
       var body = req.body;
-      var newListing = postListing(body.formContent, body.userId);
-      // When POST creates a new resource, we should tell the client about it
-      // in the 'Location' header and use status code 201.
-      res.status(201);
-       // Send the update!
-      res.send(newListing);
+      postListing(body.formContent, body.userId, function(err, listingData){
+        if(err){
+          res.send(err);
+        }
+        else if (listingData == null){
+          res.status(404).send();
+        }
+        else{
+          res.send(listingData);
+        }
+      })
     });
 
     app.get('/listing/:listingId', function (req,res){
@@ -211,12 +313,19 @@ var url = 'mongodb://localhost:27017/guava';
              validate({ body: commentSchema }), function(req, res) {
       // If this function runs, `req.body` passed JSON validation!
       var body = req.body;
-      var listing = postComment(body.author, body.text, body.listingId);
-      // When POST creates a new resource, we should tell the client about it
-      // in the 'Location' header and use status code 201.
-      res.status(201);
-       // Send the update!
-      res.send(listing);
+      postComment(body.author, body.text, body.listingId, function(err, listingData){
+        if (err){
+          console.log(err)
+          res.send(err);
+        }
+        else if (listingData == null){
+          res.status(404).send();
+        }
+        else{
+          res.send(listingData);
+        }
+      })
+
     });
 
     function getResults(resultId){
@@ -295,30 +404,7 @@ function postRatingUpdate(user, location, contents) {
   return newStatusUpdate;
 }
 
-function postListing(formContent, userid){
-  var newAnimal = {
-    "name": formContent.name,
-    "age": formContent.age,
-    "type": formContent.type,
-    "breed": formContent.breed,
-    "gender": formContent.gender,
-    "characteristics": formContent.characteristics.split(", "),
-    "imgURL": formContent.imgURL
-  }
-  newAnimal = addDocument("animal", newAnimal)
-  var newListing = {
-    "location": formContent.location,
-    "description": formContent.description,
-    "date": Date.now(),
-    "animals": [newAnimal._id],
-    "title": formContent.title,
-    "author": userid,
-    "comments": []
- }
-  newListing = addDocument("listing", newListing)
-  syncListing(newListing)
-  return newListing
-}
+
 
 
 
@@ -326,17 +412,4 @@ function getAnimalById(animalid, cb) {
   var petofthemonth = readDocument("animal", animalid)
   //syncPetOfTheMonth(petofthemonth)
   return petofthemonth
-}
-
-function postComment(author, text, listingid){
-  var listing = readDocument("listing", listingid)
-  var comment = {
-    author: author,
-    text: text
-  }
-  comment = addDocument("comment", comment)
-  listing.comments.push(comment._id)
-  writeDocument("listing", listing)
-  syncListing(listing)
-  return listing
 }

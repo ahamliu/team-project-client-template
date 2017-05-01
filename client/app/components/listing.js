@@ -29,7 +29,7 @@ export default class Listing extends React.Component{
   onCommentPost(e, comment){
     console.log(comment)
     e.preventDefault()
-    postComment(comment.name, comment.text, 1, (data) => {
+    postComment(comment.name, comment.text, "000000000000000000000001", (data) => {
       console.log(data)
       this.setState(data)
     })
