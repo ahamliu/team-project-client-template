@@ -21,7 +21,7 @@ export default class Listing extends React.Component{
   }
   componentDidMount(){
     console.log("test")
-    getListingById(1, (data) => {
+    getListingById("000000000000000000000001", (data) => {
       this.setState(data)
       console.log(this.state.author)
     })
@@ -60,7 +60,6 @@ export default class Listing extends React.Component{
     }
       return (
         <div>
-          <Navbar/>
           <center><label for="formGroupExampleInput"><font size="6"><b>{this.state.title}</b></font></label></center>
           <div className="col-md-2">
           </div>

@@ -57,10 +57,10 @@ var initialData = {
     "1": {
       "location": "UMass Amherst, Field dorm",
       "date": Date.now(),
-      "animals": [1],
+      "animals": [new ObjectID("000000000000000000000001")],
       "title": "Pet listing",
       "description": "famous cat on reddit",
-      "comments": [1],
+      "comments": [new ObjectID("000000000000000000000001")],
       "_id": new ObjectID("000000000000000000000001"),
       "author": new ObjectID("000000000000000000000001")
     }
