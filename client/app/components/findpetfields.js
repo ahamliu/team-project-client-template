@@ -6,18 +6,19 @@ export default class FindpetFields extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      locationName: "",
-      typeName: "",
-      subtypeName: "",
-      isInfant: false,
-      isYoung: false,
-      isAdult: false,
-      isSenior: false,
-      isMale: false,
-      isFemale: false,
-      isUnknown: false,
-      characteristicsName: "",
-      results: []
+      "locationName": "",
+      "typeName": "",
+      "subtypeName": "",
+      "isInfant": false,
+      "isYoung": false,
+      "isAdult": false,
+      "isSenior": false,
+      "isMale": false,
+      "isFemale": false,
+      "isUnknown": false,
+      "characteristicsName": "",
+      "results": [],
+      "haveresults": false
     };
   }
 
@@ -87,6 +88,7 @@ export default class FindpetFields extends React.Component{
       getResults(queryId, locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal, (data) => {
         console.log(data);
         this.setState({results: data});
+        this.setState({haveresults: true});
       });
     }
   }
@@ -94,7 +96,7 @@ export default class FindpetFields extends React.Component{
   render(){
       return (
         <div>
-          <div className="col-md-3">
+          <div className="col-md-3 fields-formatting">
             <form>
               <div className="form-group">
                 <label htmlFor="location">Location</label>
@@ -182,17 +184,23 @@ export default class FindpetFields extends React.Component{
               <row>
                 <div className="form-group pull-left">
                   <label>Characteristics</label>
-                  <input type="text" className="form-control" placeholder="Enter characteristics" name="characteristicName"
+                  <input type="text" className="form-control pull-left" placeholder="Enter characteristics" name="characteristicName"
                     value={this.state.characteristic} onChange={(e) => this.handleCharacteristics(e)} />
-                  <small id="characteristicsHelp" className="form-text text-muted">i.e. friendly, smelly, etc.</small>
+                  <small id="characteristicsHelp" className="form-text text-muted pull-left">i.e. friendly, smelly, etc.</small>
                 </div>
                 <br />
-                <div className="btn-default pull-right" onClick={(e) =>this.handleSearch(e)}>Find</div>
+              </row>
+              <row>
+                <div className="col-md-2"></div>
+                <div className="col-md-7">
+                  <div className="btn-default btn-block find-btn-formatting" onClick={(e) =>this.handleSearch(e)}>Find</div>
+                </div>
+                <div className="col-md-3"></div>
               </row>
             </form>
           </div>
           <div className="col-md-6">
-            <ResultList result={this.state.results} />
+            <ResultList results={this.state.results} haveresults={this.state.haveresults} />
           </div>
         </div>
     )

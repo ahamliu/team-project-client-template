@@ -3,8 +3,26 @@ import Result from './result.js'
 
 export default class ResultList extends React.Component{
   render(){
-    var results = [];
-    results = this.props.results;
+    var results;
+    if(this.props.haveresults){
+
+      results = (
+        <ul className="media-list">
+          <li className="media" key={this.props.results[0]._id}>
+            <Result image={this.props.results[0].image} name={this.props.results[0].name} location={this.props.results[0].location} type={this.props.results[0].type}
+               breed={this.props.results[0].subtype} age={this.props.results[0].age} gender={this.props.results[0].gender} characteristics={this.props.results[0].characteristics} />
+          </li>
+          <li className="media" key={this.props.results[1]._id}>
+            <Result image={this.props.results[1].image} name={this.props.results[1].name} location={this.props.results[1].location} type={this.props.results[1].type}
+               breed={this.props.results[1].subtype} age={this.props.results[1].age} gender={this.props.results[1].gender} characteristics={this.props.results[1].characteristics} />
+          </li>
+          <li className="media" key={this.props.results[2]._id}>
+            <Result image={this.props.results[2].image} name={this.props.results[2].name} location={this.props.results[2].location} type={this.props.results[2].type}
+               breed={this.props.results[2].subtype} age={this.props.results[2].age} gender={this.props.results[2].gender} characteristics={this.props.results[2].characteristics} />
+          </li>
+        </ul>
+      )
+    }
     return (
       <div>
         <div className= "panel panel-default results-formatting">
@@ -13,16 +31,7 @@ export default class ResultList extends React.Component{
           </div>
         </div>
         <div className= "panel-body results-formatting">
-          <ul className="media-list">
-            {results.forEach((result) => {
-              return (
-                <li className="media" key={result._id}>
-                  <Result image={result.image} name={result.name} location={result.location} Type={result.type}
-                     breed={result.breed} age={result.age} gender={result.gender} characteristics={result.characteristics} />
-                </li>
-              )
-            })}
-          </ul>
+                  {results}
         </div>
       </div>
      )
