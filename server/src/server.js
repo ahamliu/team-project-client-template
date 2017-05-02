@@ -100,6 +100,7 @@ var url = 'mongodb://localhost:27017/guava';
        }
        else{
          console.log("listing")
+
          getAnimalById(listingData.animals[0], function(err, animalData){
            if (err){
              return cb(err);
@@ -286,7 +287,7 @@ var url = 'mongodb://localhost:27017/guava';
     });
 
     app.get('/listing/:listingId', function (req,res){
-      getListingById(req.params.listingId, function(err, listingData){
+       getListingById(req.params.listingId, function(err, listingData){
         if (err){
           console.log(err)
           res.send(err);
@@ -301,11 +302,18 @@ var url = 'mongodb://localhost:27017/guava';
     });
 
     app.get('/animal/:animalId', function (req,res){
-      var params = req.params;
-      var animals = getAnimalById(params.animalId);
-      res.status(201);
-      res.send(animals);
-    });
+      getAnimalById(req.params.listingId, function(err, animalData){
+       if (err){
+         res.send(err);
+       }
+       else if (animalData == null){
+         res.status(404).send();
+       }
+       else{
+         res.send(animalData);
+       }
+     })
+   });
 
 
     // `POST /feeditem { userId: user, location: location, contents: contents  }`
