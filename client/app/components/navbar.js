@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default class Navbar extends React.Component {
   render() {
@@ -16,12 +17,11 @@ export default class Navbar extends React.Component {
                 <span className="glyphicon glyphicon-search"></span>
               </button>
             </form>
-
             <div className="navbar-header">
-              <a className="navbar-brand .navbar-inverse .nav-brand" href="homepage.html">
-               <font color="5fcf80"><span className="glyphicon glyphicon-heart-empty"></span></font>
-               <font color="ffffff">LitterBox</font>
-              </a>
+              <Link to={"homepage"} className="navbar-brand .navbar-inverse .nav-brand">
+                <font color="5fcf80"><span className="glyphicon glyphicon-heart-empty"></span></font>
+                <font color="ffffff">LitterBox</font>
+              </Link>
             </div>
 
             <div className="btn-toolbar pull-right" role="toolbar">
@@ -41,10 +41,10 @@ export default class Navbar extends React.Component {
           </nav>
 
           <ul className="nav nav-pills nav-justified">
-            <li role="presentation"><a href="homepage.html"><span className="glyphicon glyphicon-heart"></span> Home</a></li>
-            <li role="presentation"><a href="findpets.html"><span className="glyphicon glyphicon-search"></span> Find</a></li>
-            <li role="presentation"><a href="list.html"><span className="glyphicon glyphicon-list-alt   "></span> List</a></li>
-            <li role="presentation"><a href="petofthemonth.html"><span className="glyphicon glyphicon-star"></span> Pet of the Month</a></li>
+            <li role="presentation"><Link to={"/homepage/"}><span className="glyphicon glyphicon-heart"></span> Home</Link></li>
+            <li role="presentation"><Link to={"/findpetspage/"}><span className="glyphicon glyphicon-search"></span> Find</Link></li>
+            <li role="presentation"><Link to={"/listpage/"}><span className="glyphicon glyphicon-list-alt   "></span> List</Link></li>
+            <li role="presentation"><Link to={"/petofthemonthpage/"}><span className="glyphicon glyphicon-star"></span> Pet of the Month</Link></li>
           </ul>
       </div>
     )

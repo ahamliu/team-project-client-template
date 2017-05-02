@@ -10,12 +10,6 @@ function emulateServerReturn(data, cb) {
   }, 4);
 }
 
-export function getListingById(listingid, cb) {
-  var listing = readDocument("listing", listingid)
-  console.log(listing)
-  syncListing(listing)
-  emulateServerReturn(listing,cb)
-}
 
 export function getStats(stat) {
   var items = readDocuments(stat)
@@ -33,19 +27,12 @@ Object.size = function(obj) {
     return size;
 };
 
-export function postComment(author, text, listingid, cb){
-  var listing = readDocument("listing", listingid)
-  console.log(listingid+listing._id)
-  var comment = {
-    author: author,
-    text: text
-  }
-  comment = addDocument("comment", comment)
-  listing.comments.push(comment._id)
-  writeDocument("listing", listing)
-  syncListing(listing)
-  emulateServerReturn(listing, cb)
+export function getRandomListing(){
+  var i = getStats("listing")
+  console.log(parseInt(Math.random()*i))
+  return (parseInt(Math.random()*i)+1)
 }
+
 
 export function getAnimalById(animalid, cb) {
   var petofthemonth = readDocument("animal", animalid)
@@ -59,41 +46,6 @@ export function getAnimalById(animalid, cb) {
     return readDocument("animal", animalid)
   })
 }*/
-
-function syncListing(listing){
-  listing.animals = listing.animals.map((animalid) => {
-    return readDocument("animal", animalid)
-  })
-  listing.comments = listing.comments.map((commentid) => {
-    return readDocument("comment", commentid)
-  })
-  listing.author = readDocument("user", listing.author)
-}
-export function postListing(formContent, userid, cb){
-  var newAnimal = {
-    "name": formContent.name,
-    "age": formContent.age,
-    "type": formContent.type,
-    "breed": formContent.breed,
-    "gender": formContent.gender,
-    "characteristics": formContent.characteristics.split(", "),
-    "imgURL": formContent.imgURL
-  }
-  newAnimal = addDocument("animal", newAnimal)
-  var newListing = {
-    "location": formContent.location,
-    "description": formContent.description,
-    "date": Date.now(),
-    "animals": [newAnimal._id],
-    "title": formContent.title,
-    "author": userid,
-    "comments": []
- }
-  newListing = addDocument("listing", newListing)
-  syncListing(newListing)
-  emulateServerReturn(newListing, cb)
-}
-
 
 function syncUser(user){
     var feedid = user.feed
@@ -135,115 +87,151 @@ export function getFeedData(user, cb) {
   emulateServerReturn(feedData, cb);
 }
 
-export function postStatusUpdate(user, location, contents, cb) {
-  var time = new Date().getTime();
-  // The new status update. The database will assign the ID for us.
-  var newStatusUpdate = {
-    "likeCounter": [],
-    "type": "statusUpdate",
-    "contents": {
-      "author": user,
-      "postDate": time,
-      "location": location,
-      "contents": contents
-    }//,
-    // List of comments on the post
-    //"comments": []
-  };
+var xhr = new XMLHttpRequest();
+function sendXHR(verb, resource, body, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(verb, resource);
 
-  // Add the status update to the database.
-  // Returns the status update w/ an ID assigned.
-  newStatusUpdate = addDocument('feedItems', newStatusUpdate);
+  // The below comment tells ESLint that FacebookError is a global.
+  // Otherwise, ESLint would complain about it! (See what happens in Atom if
+  // you remove the comment...)
+  /* global FacebookError */
 
-  // Add the status update reference to the front of the current user's feed.
-  var userData = readDocument('users', user);
-   var feedData = readDocument('feeds', userData.feed);
-  feedData.contents.unshift(newStatusUpdate._id);
+  // Response received from server. It could be a failure, though!
+  xhr.addEventListener('load', function() {
+    var statusCode = xhr.status;
+    var statusText = xhr.statusText;
+    if (statusCode >= 200 && statusCode < 300) {
+      // Success: Status code is in the [200, 300) range.
+      // Call the callback with the final XHR object.
+      cb(xhr);
+    } else {
+      // Client or server error.
+      // The server may have included some response text with details concerning
+      // the error.
+      var responseText = xhr.responseText;
+      FacebookError('Could not ' + verb + " " + resource + ": Received " + statusCode + " " + statusText + ": " + responseText);
+    }
+  });
 
-   // Update the feed object.
-   writeDocument('feeds', feedData);
+  // Time out the request if it takes longer than 10,000
+  // milliseconds (10 seconds)
+  xhr.timeout = 10000;
 
-   // Return the newly-posted object.
-   emulateServerReturn(newStatusUpdate, cb);
- }
+  // Network failure: Could not connect to server.
+  xhr.addEventListener('error', function() {
+    FacebookError('Could not ' + verb + " " + resource + ": Could not connect to the server.");
+  });
 
+  // Network failure: request took too long to complete.
+  xhr.addEventListener('timeout', function() {
+    FacebookError('Could not ' + verb + " " + resource + ": Request timed out.");
+  });
 
+<<<<<<< HEAD
+function sendXHR(verb, resource, body, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(verb, resource);
 
+  // The below comment tells ESLint that FacebookError is a global.
+  // Otherwise, ESLint would complain about it! (See what happens in Atom if
+  // you remove the comment...)
+  /* global FacebookError */
 
+  // Response received from server. It could be a failure, though!
+  xhr.addEventListener('load', function() {
+    var statusCode = xhr.status;
+    var statusText = xhr.statusText;
+    if (statusCode >= 200 && statusCode < 300) {
+      // Success: Status code is in the [200, 300) range.
+      // Call the callback with the final XHR object.
+      cb(xhr);
+    } else {
+      // Client or server error.
+      // The server may have included some response text with details concerning
+      // the error.
+      var responseText = xhr.responseText;
+      FacebookError('Could not ' + verb + " " + resource + ": Received " + statusCode + " " + statusText + ": " + responseText);
+    }
+  });
 
-// function sendXHR(verb, resource, body, cb) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open(verb, resource);
-//
-//   // The below comment tells ESLint that FacebookError is a global.
-//   // Otherwise, ESLint would complain about it! (See what happens in Atom if
-//   // you remove the comment...)
-//   /* global FacebookError */
-//
-//   // Response received from server. It could be a failure, though!
-//   xhr.addEventListener('load', function() {
-//     var statusCode = xhr.status;
-//     var statusText = xhr.statusText;
-//     if (statusCode >= 200 && statusCode < 300) {
-//       // Success: Status code is in the [200, 300) range.
-//       // Call the callback with the final XHR object.
-//       cb(xhr);
-//     } else {
-//       // Client or server error.
-//       // The server may have included some response text with details concerning
-//       // the error.
-//       var responseText = xhr.responseText;
-//       FacebookError('Could not ' + verb + " " + resource + ": Received " + statusCode + " " + statusText + ": " + responseText);
-//     }
-//   });
-//
-//   // Time out the request if it takes longer than 10,000
-//   // milliseconds (10 seconds)
-//   xhr.timeout = 10000;
-//
-//   // Network failure: Could not connect to server.
-//   xhr.addEventListener('error', function() {
-//     FacebookError('Could not ' + verb + " " + resource +": Could not connect to the server.");
-//   });
-//
-//   // Network failure: request took too long to complete.
-//   xhr.addEventListener('timeout', function() {
-//     FacebookError('Could not ' + verb + " " + resource + ": Request timed out.");
-//   });
-//
-//   switch (typeof(body)) {
-//     case 'undefined':
-//       // No body to send.
-//       xhr.send();
-//       break;
-//     case 'string':
-//       // Tell the server we are sending text.
-//       xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-//       xhr.send(body);
-//       break;
-//     case 'object':
-//       // Tell the server we are sending JSON.
-//       xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//       // Convert body into a JSON string.
-//       xhr.send(JSON.stringify(body));
-//       break;
-//     default:
-//       throw new Error('Unknown body type: ' + typeof(body));
-//   }
-// }
+  // Time out the request if it takes longer than 10,000
+  // milliseconds (10 seconds)
+  xhr.timeout = 10000;
+
+  // Network failure: Could not connect to server.
+  xhr.addEventListener('error', function() {
+    FacebookError('Could not ' + verb + " " + resource +": Could not connect to the server.");
+  });
+
+  // Network failure: request took too long to complete.
+  xhr.addEventListener('timeout', function() {
+    FacebookError('Could not ' + verb + " " + resource + ": Request timed out.");
+  });
+
+=======
+>>>>>>> parent of 8368244... fixed profile
+  switch (typeof(body)) {
+    case 'undefined':
+      // No body to send.
+      xhr.send();
+      break;
+    case 'string':
+      // Tell the server we are sending text.
+      xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+      xhr.send(body);
+      break;
+    case 'object':
+      // Tell the server we are sending JSON.
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      // Convert body into a JSON string.
+      xhr.send(JSON.stringify(body));
+      break;
+    default:
+      throw new Error('Unknown body type: ' + typeof(body));
+  }
+}
 /**
  * Adds a new status update to the database.
  */
-// export function postStatusUpdate(user, location, contents, cb) {
-//   sendXHR('POST', '/feeditem', {
-//     userId: user,
-//     location: location,
-//     contents: contents
-//   }, (xhr) => {
-//     // Return the new status update.
-//     cb(JSON.parse(xhr.responseText));
-//   });
-// }
+<<<<<<< HEAD
+export function postListing(formContent, userId, cb) {
+  sendXHR('POST', '/listing', {
+    userId: userId,
+    formContent: formContent
+=======
+export function postStatusUpdate(user, location, contents, cb) {
+  sendXHR('POST', '/feeditem', {
+    userId: user,
+    location: location,
+    contents: contents
+>>>>>>> parent of 8368244... fixed profile
+  }, (xhr) => {
+    // Return the new status update.
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+<<<<<<< HEAD
+
+export function getListingById(listingId, cb) {
+  sendXHR('GET', '/listing/'+listingId, null, (xhr) => {
+    // Return the new status update.
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+
+export function postComment(author, text, listingId, cb) {
+  sendXHR('POST', '/comment', {
+    author: author,
+    text: text,
+    listingId: listingId
+  }, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
+}
+
+=======
+>>>>>>> parent of 8368244... fixed profile
 export function likeFeedItem(feedItemId, userId, cb) {
   var feedItem = readDocument('feedItems', feedItemId);
   // Normally, we would check if the user already liked this comment.
@@ -266,7 +254,7 @@ export function unlikeFeedItem(feedItemId, userId, cb) {
 
 }
 
-
+/*
 export function findPets(location, type, subtype, age, gender, characteristics, queryListID, cb) {
   var queryList = readDocument('queryList', queryListID);
   queryList.push({
@@ -278,5 +266,22 @@ export function findPets(location, type, subtype, age, gender, characteristics, 
     "gender": gender,
     "characteristics": characteristics
   });
-  //emulateServerReturn(getFeedItemSync(feedItemId), cb);
+  writeDocument('queryList', queryList);
+
+  var results = readDocuments('animal');
+
+  emulateServerReturn(results, cb);
+}
+*/
+export function getResults(location, type, subtype, age, gender, characteristics, cb) {
+  sendXHR('GET', '/results/' + 1, {
+    location: location,
+    type: type,
+    subtype: subtype,
+    age: age,
+    gender: gender,
+    characteristics: characteristics
+  }, (xhr) => {
+    cb(JSON.parse(xhr.responseText));
+  });
 }

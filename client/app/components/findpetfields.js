@@ -1,5 +1,5 @@
 import React from 'react';
-import findPets from '../server';
+import {getResults} from '../server';
 
 export default class FindpetFields extends React.Component{
   constructor(props) {
@@ -30,24 +30,31 @@ export default class FindpetFields extends React.Component{
   }
   handleInfant(e) {
     if(e.target.checked) this.setState({ isInfant: true });
+    else if (e.target.checked === false) this.setState({ isInfant: false });
   }
   handleYoung(e) {
     if(e.target.checked) this.setState({ isYoung: true });
+    else if (e.target.checked === false) this.setState({ isYoung: false });
   }
   handleAdult(e) {
     if(e.target.checked) this.setState({ isAdult: true });
+    else if (e.target.checked === false) this.setState({ isAdult: false });
   }
   handleSenior(e) {
     if(e.target.checked) this.setState({ isSenior: true });
+    else if (e.target.checked === false) this.setState({ isSenior: false });
   }
   handleMale(e) {
     if(e.target.checked) this.setState({ isMale: true });
+    else if (e.target.checked === false) this.setState({ isMale: false });
   }
   handleFemale(e) {
     if(e.target.checked) this.setState({ isFemale: true });
+    else if (e.target.checked === false) this.setState({ isFemale: false });
   }
   handleUnknown(e) {
     if(e.target.checked) this.setState({ isUnknown: true });
+    else if (e.target.checked === false) this.setState({ isUnknown: false });
   }
   handleCharacteristics(e) {
     this.setState({ characteristicsName: e.target.value });
@@ -74,7 +81,8 @@ export default class FindpetFields extends React.Component{
 
     if(locationVal !== "" && typeVal !== "" && subtypeVal !== "" && genderVal !== "" && characteristicsVal !== ""){
       //console.log("TEST"+locationVal + typeVal + subtypeVal + ageVal + genderVal + characteristicsVal);
-      findPets(locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal);
+      getResults(locationVal, typeVal, subtypeVal, ageVal, genderVal, characteristicsVal, (data) => {data
+      });
     }
   }
 

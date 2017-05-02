@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "definitions": {},
+    "id": "http://example.com/example.json",
+    "properties": {
+        "_id": {
+            "id": "/properties/_id",
+            "type": "integer"
+        },
+        "animals": {
+            "id": "/properties/animals",
+            "items": {
+                "id": "/properties/animals/items",
+                "type": "integer"
+            },
+            "type": "array"
+        },
+        "author": {
+            "id": "/properties/author",
+            "type": "integer"
+        },
+        "comments": {
+            "id": "/properties/comments",
+            "items": {
+                "id": "/properties/comments/items",
+                "type": "integer"
+            },
+            "type": "array"
+        },
+        "date": {
+            "id": "/properties/date",
+            "type": "string",
+            "format": "date-time"
+        },
+        "description": {
+            "id": "/properties/description",
+            "type": "string"
+        },
+        "location": {
+            "id": "/properties/location",
+            "type": "string"
+        },
+        "title": {
+            "id": "/properties/title",
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

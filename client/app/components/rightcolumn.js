@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 import {getStats} from '../server.js'
 
 
@@ -19,7 +20,7 @@ export default class RightColumn extends React.Component {
     console.log("test")
     console.log(getStats("animal"))
     this.setState({"listing":getStats("listing")})
-    this.setState({"users":getStats("users")})
+    this.setState({"users":getStats("user")})
     this.setState({"animal":getStats("animal")})
     console.log(this.state)
   }
@@ -72,7 +73,8 @@ export default class RightColumn extends React.Component {
               <p className="potm-descript">
                   "found in my kitchen pls come pick up. txt or call anytime"
               </p>
-              <a className="btn btn-primary btn-block potm-button" href="#" role="button">Interested?</a>
+
+              <Link to={"/petofthemonthpage/"} className="btn btn-primary btn-block potm-button"> Interested?</Link>
 
           </div>
       </div>
@@ -80,3 +82,4 @@ export default class RightColumn extends React.Component {
     );
     }
 }
+// <a className="btn btn-primary btn-block potm-button" href="#" role="button">Interested?</a>

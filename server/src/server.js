@@ -11,11 +11,11 @@ var bodyParser = require('body-parser');
 app.use(express.static('../client/build'));
 
 var ratingUpdateSchema = require('./schemas/ratingUpdate.json');
+var listingSchema = require('./schemas/listing.json');
+var commentSchema = require('./schemas/comment.json');
 var validate = require('express-jsonschema').validate;
 var writeDocument = database.writeDocument;
-var readDocument = database.writeDocument;
 var addDocument = database.addDocument;
-var getFeedData = 
 
 // Support receiving text in HTTP request bodies
 app.use(bodyParser.text());
@@ -32,7 +32,7 @@ function postRatingUpdate(user, location, contents) {
   // Get the current UNIX time.
   var time = new Date().getTime();
   // The new status update. The database will assign the ID for us.
-  var newRatingUpdate = {
+  var newStatusUpdate = {
     "likeCounter": [],
     "type": "statusUpdate",
     "contents": {
@@ -48,37 +48,148 @@ function postRatingUpdate(user, location, contents) {
 
   // Add the status update to the database.
   // Returns the status update w/ an ID assigned.
-  newRatingUpdate = addDocument('feedItems', newRatingUpdate);
+  newStatusUpdate = addDocument('feedItems', newStatusUpdate);
   // Add the status update reference to the front of the current user's feed.
   var userData = readDocument('users', user);
   var feedData = readDocument('feeds', userData.feed);
-  feedData.contents.unshift(newRatingUpdate._id);
+  feedData.contents.unshift(newStatusUpdate._id);
   // Update the feed object.
   writeDocument('feeds', feedData);
   // Return the newly-posted object.
-  return newRatingUpdate;
+  return newStatusUpdate;
 }
-/**
- * Get the feed data for a particular user.
- */
-app.get('/users/:userid/feed', function(req, res) {
-  // URL parameters are stored in req.params
-  var userid = req.params.userid;
-  // Send response.
-  res.send(getFeedData(userid));
-});
+
+function syncListing(listing){
+  listing.animals = listing.animals.map((animalid) => {
+    return readDocument("animal", animalid)
+  })
+  listing.comments = listing.comments.map((commentid) => {
+    return readDocument("comment", commentid)
+  })
+  listing.author = readDocument("user", listing.author)
+}
+
+function postListing(formContent, userid){
+  var newAnimal = {
+    "name": formContent.name,
+    "age": formContent.age,
+    "type": formContent.type,
+    "breed": formContent.breed,
+    "gender": formContent.gender,
+    "characteristics": formContent.characteristics.split(", "),
+    "imgURL": formContent.imgURL
+  }
+  newAnimal = addDocument("animal", newAnimal)
+  var newListing = {
+    "location": formContent.location,
+    "description": formContent.description,
+    "date": Date.now(),
+    "animals": [newAnimal._id],
+    "title": formContent.title,
+    "author": userid,
+    "comments": []
+ }
+  newListing = addDocument("listing", newListing)
+  syncListing(newListing)
+  return newListing
+}
+
+function getListingById(listingid) {
+  var listing = readDocument("listing", listingid)
+  syncListing(listing)
+  return listing
+}
+
+function getAnimalById(animalid, cb) {
+  var petofthemonth = readDocument("animal", animalid)
+  //syncPetOfTheMonth(petofthemonth)
+  return petofthemonth
+}
+
+function postComment(author, text, listingid){
+  var listing = readDocument("listing", listingid)
+  var comment = {
+    author: author,
+    text: text
+  }
+  comment = addDocument("comment", comment)
+  listing.comments.push(comment._id)
+  writeDocument("listing", listing)
+  syncListing(listing)
+  return listing
+}
 
 // `POST /feeditem { userId: user, location: location, contents: contents  }`
-app.post('/feeditem', validate({ body: ratingUpdateSchema }), function(req, res) {
+app.post('/feeditem',
+         validate({ body: ratingUpdateSchema }), function(req, res) {
   // If this function runs, `req.body` passed JSON validation!
   var body = req.body;
+<<<<<<< HEAD
     var newUpdate = postRatingUpdate(body.userId, body.location, body.contents);
+
+=======
+    var newUpdate = postStatusUpdate(body.userId, body.location,
+		                             body.contents);
+>>>>>>> parent of 8368244... fixed profile
     // When POST creates a new resource, we should tell the client about it
     // in the 'Location' header and use status code 201.
     res.status(201);
     res.set('Location', '/feeditem/' + newUpdate._id);
      // Send the update!
     res.send(newUpdate);
+});
+
+// `POST /feeditem { userId: user, location: location, contents: contents  }`
+app.post('/listing',
+         validate({ body: listingSchema }), function(req, res) {
+  // If this function runs, `req.body` passed JSON validation!
+  var body = req.body;
+  var newListing = postListing(body.formContent, body.userId);
+  // When POST creates a new resource, we should tell the client about it
+  // in the 'Location' header and use status code 201.
+  res.status(201);
+   // Send the update!
+  res.send(newListing);
+});
+
+app.get('/listing/:listingId', function (req,res){
+  var params = req.params;
+  var listing = getListingById(params.listingId);
+  res.status(201);
+  res.send(listing);
+});
+
+app.get('/animal/:animalId', function (req,res){
+  var params = req.params;
+  var animals = getAnimalById(params.animalId);
+  res.status(201);
+  res.send(animals);
+});
+
+
+// `POST /feeditem { userId: user, location: location, contents: contents  }`
+app.post('/comment',
+         validate({ body: commentSchema }), function(req, res) {
+  // If this function runs, `req.body` passed JSON validation!
+  var body = req.body;
+  var listing = postComment(body.author, body.text, body.listingId);
+  // When POST creates a new resource, we should tell the client about it
+  // in the 'Location' header and use status code 201.
+  res.status(201);
+   // Send the update!
+  res.send(listing);
+});
+
+function getResults(resultId){
+  var result = readDocument("results", resultId);
+  return result;
+}
+
+// GET results for findpets
+app.get('/results/:resultId', function (req,res){
+  var result = getResults(req.resultId);
+  res.status(201);
+  res.send(result);
 });
 /**
  * Translate JSON Schema Validation failures into error 400s.

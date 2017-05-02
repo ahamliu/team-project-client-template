@@ -26,7 +26,6 @@ export default class Listform extends React.Component{
   }
   handleClick(e){
     e.preventDefault()
-    console.log(this.state)
     postListing(this.state, 1, (data) => {
       console.log(data)
       this.setState({
