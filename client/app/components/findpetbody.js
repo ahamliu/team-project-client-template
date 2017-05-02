@@ -6,6 +6,7 @@ import ResultList from './resultlist.js';
 export default class FindpetBody extends React.Component{
   constructor(props) {
     super(props);
+    this.callbackToFields = this.callbackToFields.bind(this);
     this.state = {
       contents: []
     };
@@ -17,10 +18,11 @@ export default class FindpetBody extends React.Component{
   }
 
   render(){
+    var callbackToFields = this.callbackToFields;
     return (
       <div>
         <div className="col-md-3">
-          <FindpetFields callBackFromParent={this.callbackToFields} />,
+          <FindpetFields callbackToFields={callbackToFields.bind(this)} />,
         </div>
         <div className="col-md-6">
           <ResultList />

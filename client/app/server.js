@@ -229,8 +229,8 @@ export function findPets(location, type, subtype, age, gender, characteristics, 
   emulateServerReturn(results, cb);
 }
 */
-export function getResults(location, type, subtype, age, gender, characteristics, cb) {
-  sendXHR('GET', '/results/' + 1, {
+export function getResults(queryId, location, type, subtype, age, gender, characteristics, cb) {
+  sendXHR('GET', '/results/' + queryId, {
     location: location,
     type: type,
     subtype: subtype,
@@ -238,7 +238,6 @@ export function getResults(location, type, subtype, age, gender, characteristics
     gender: gender,
     characteristics: characteristics
   }, (xhr) => {
-    console.log(location, age);
     cb(JSON.parse(xhr.responseText));
   });
 }

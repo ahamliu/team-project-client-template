@@ -328,29 +328,37 @@ var url = 'mongodb://localhost:27017/guava';
 
     });
 
+    // Get results from database
     function getResultsById(resultId, cb) {
       console.log(resultId);
-      db.collection("results").findOne({
-        _id: "1"
-      }, function(err, resultData){
+      db.collection('pets').find().toArray(function(err, resultData){
         if(err){
-          return cb(null, err);
+          return cb(err);
         }
         else if(resultData == null){
           return cb(null, null);
         }
         else{
-          console.log(resultData)
-          return cb(null, resultData)
+          console.log(resultData);
+          return cb(null, resultData);
         }
-      })
+      });
     }
-
     // GET results for findpets
     app.get('/results/:resultId', function (req,res){
-      var result = getResultsById(req.resultId);
-      res.status(201);
-      res.send(result);
+      getResultsById([req.params.resultId], function(err, resultData){
+        if (err){
+          console.log(err)
+          res.send(err);
+        }
+        else if (resultData == null){
+          res.status(404).send();
+        }
+        else{
+          console.log(resultData)
+          res.send(resultData);
+        }
+      });
     });
     /**
      * Translate JSON Schema Validation failures into error 400s.

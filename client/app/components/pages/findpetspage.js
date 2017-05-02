@@ -6,11 +6,8 @@ export default class FindPetsPage extends React.Component {
   render() {
     return(
         <div className="row">
-          <div className="col-md-3">
+          <div>
             <FindpetFields />
-          </div>
-          <div className="col-md-6">
-            <ResultList />
           </div>
           <div className="col-md-3">
           </div>

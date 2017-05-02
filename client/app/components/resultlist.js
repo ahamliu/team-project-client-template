@@ -2,6 +2,13 @@ import React from 'react'
 import Result from './result.js'
 
 export default class ResultList extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: []
+    };
+  }
+
   render(){
     return (
       <div>
