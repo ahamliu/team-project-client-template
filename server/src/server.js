@@ -330,7 +330,6 @@ var url = 'mongodb://localhost:27017/guava';
 
     // Get results from database
     function getResultsById(resultId, cb) {
-      console.log(resultId);
       db.collection('pets').find().toArray(function(err, resultData){
         if(err){
           return cb(err);
@@ -339,11 +338,14 @@ var url = 'mongodb://localhost:27017/guava';
           return cb(null, null);
         }
         else{
-          console.log(resultData);
           return cb(null, resultData);
         }
       });
     }
+    /*var resultMap = {};
+    resultData.forEach((result) => {
+      resultMap[result._id] = result;
+    });*/
     // GET results for findpets
     app.get('/results/:resultId', function (req,res){
       getResultsById([req.params.resultId], function(err, resultData){
@@ -355,7 +357,6 @@ var url = 'mongodb://localhost:27017/guava';
           res.status(404).send();
         }
         else{
-          console.log(resultData)
           res.send(resultData);
         }
       });
